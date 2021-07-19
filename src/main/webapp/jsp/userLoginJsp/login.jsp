@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<%--
+  Created by IntelliJ IDEA.
+  User: king
+  Date: 2021/7/17
+  Time: 17:01
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>总工会登录页面</title>
-    <link rel="stylesheet" href="static/css/regester.css">
+    <link rel="stylesheet" href="../../static/css/regester.css">
 </head>
 <body>
 <!--<div class="header">-->

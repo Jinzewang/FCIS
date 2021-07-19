@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService {
-    @Autowired
+public interface UserService {
+    /*@Autowired
     UserMapper userMapper;
     public List<User> getAllUser() {
         return userMapper.gerAllUser();
-    }
+    }*/
+    //检验用户登录
+    User checkLogin(String username,String password);
 }
