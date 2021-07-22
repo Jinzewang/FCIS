@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+body {
+    background-color: #f3f5f7;
+    /* height: 3000px; */
+}
+
+li {
+    /* 清除源点 */
+    list-style: none;
+}
+
+a {
+    /* 清除下划线 */
+    text-decoration: none;
+}
+
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+img{
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+body {
+    background-color: #4884ff;
+}
+.head{
+    height: 70px;
+    background-color: rgba(39, 78, 110, 0.637);
+}
+.head .tt{
+    width: 50px;
+    height: 30px;
+    float: right;
+    margin-right: 60px;
+     margin-top: 20px;
+}
+.head .tw{
+    width: 100px;
+    height: 30px;
+    float: right;
+    margin-right: 60px;
+     margin-top: 20px;
+}
+.head .ts{
+    width: 50px;
+    height: 30px;
+    float: right;
+    margin-right: 60px;
+     margin-top: 20px;
+}
+.head .t{
+    color: #fff;
+    font-size: 15px;
+}
+.head .t:hover{
+    color: cornflowerblue;
+}
+.head .z{
+    float: left;
+    font-family: Chinese Xing Kai;
+    color: #fff;
+    font-size: 40px;
+}
+.head .g{
+    float: left;
+    font-family: Chinese Xing Kai;
+    color: #fff;
+    font-size: 20px;
+}
+.body{
+    width: 1300px;
+    height: 300px;
+    float: left;
+    margin: auto;
+    margin: 200px 0 0 170px;
+}
+.body p{
+     margin-left: 60px;
+     font-size: 30px;
+     color: #fff;
+}
+.body .one , .two , .three, .four{
+    float: left;
+    margin-left: 30px;
+}
+.body .one .o{
+    width: 250px;
+    height: 250px;
+    background-color: #6cf0a6;
+    border-radius: 250px;
+}
+.body .two .t{
+    width: 250px;
+    height: 250px;
+    background-color: #6cf0a6;
+    border-radius: 250px;
+}
+.body .three .te{
+    width: 250px;
+    height: 250px;
+    background-color: #6cf0a6;
+    border-radius: 250px;
+}
+.body .four .f{    
+    width: 250px;
+    height: 250px;
+    background-color: #6cf0a6;
+    border-radius: 250px;
+}
