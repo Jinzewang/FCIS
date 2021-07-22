@@ -1,6 +1,8 @@
 package com.fcis.model.informationManagement.outstandingPersonDeclare;
 
-public class ADDINFO {
+import java.io.Serializable;
+
+public class ADDINFO implements Serializable {
     private String stateofHealth;
     private String stateofFamily;
     private String stateofJob;

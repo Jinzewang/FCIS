@@ -31,4 +31,5 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
         <property name="basePackage" value="com.fcis.mapper"/>
     </bean>
+
 </beans>

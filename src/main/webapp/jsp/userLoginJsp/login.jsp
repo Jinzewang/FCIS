@@ -28,13 +28,14 @@
     <h1>总工会</h1>
     <form action="/checkLogin" method="post">
         <div class="acun">
-            <span>用户名:</span><input type="text"  name="username" class="account">
+            <span>用户名：</span><input type="text"  name="username" class="account">
         </div>
         <br>
         <div class="pass">
-            <span>密&nbsp;&nbsp;&nbsp;码:</span><input type="password" name="password" class="passwd">
+            <span>密&nbsp;&nbsp;&nbsp;码：</span><input type="password" name="password" class="passwd">
         </div><br>
-        <input type="submit"  class="denglu" value="登录">
+        <input type="submit"  class="denglu" value="登录">&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/updatePasswd">修改密码</a>
     </form>
 </div>
 </body>

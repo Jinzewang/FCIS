@@ -57,7 +57,9 @@
     </fieldset><br>&lt;%&ndash;省市区县&ndash;%&gt;--%>
     <table>
         输入姓名：<input type="text" value="" name="info.modelName">
-        选择性别：<input type="radio" value="male" name="info.sex">男<input type="radio" value="female" name="info.sex">女<br>
+        选择性别：<input type="radio" value="male" name="info.sex">男
+        <input type="radio" value="female" name="info.sex">女
+        <input type="radio" value="null" name="info.sex">保密<br>
         选择民族：<%--
     <asp:DropDownList name="info.nationality" runat="server">
         <asp:ListItem Text="汉族" Value="汉族" Selected="True"/>
@@ -153,15 +155,29 @@
             <td>主要突出事迹：</td><td><input type="text" value="" name="addinfo.outstandingDeeds"></td>
         </tr>
         <tr>
-            <td>已获得的荣誉称号：</td><td><input type="text" value="" name="addinfo.modelWorkerTitle"></td>
+            <td>是否已获得的荣誉称号：</td>
+            <td>
+                <input type="radio" value="true" name="addinfo.modelWorkerTitle">是
+                <input type="radio" value="false" name="addinfo.modelWorkerTitle">否
+            </td>
         </tr>
     </table><br>
+    输入认定材料：<br>
+    <table>
+        <tr>授予单位：<input type="text" value="" name="certifiedMaterials.awardingUnit"></tr>
+        <tr>授予时间：<input type="date" value="" name="certifiedMaterials.awardingTime"></tr>
+        <tr>表彰决定文件名：<input type="text" value="" name="certifiedMaterials.recognitionFileName"></tr>
+        <tr>文件名的文号（填入数字）：<input type="text" value="" name="certifiedMaterials.Symbol"></tr>
+        <tr>发文单位：<input type="text" value="" name="certifiedMaterials.recognitionUnit"></tr>
+        <tr>发文时间：<input type="date" value="" name="certifiedMaterials.recognitionTime"></tr>
+    </table>
+    <br>
     上传认定材料：
     <table>
        <tr><td>认定材料1</td><td><input type="file" value="" name="file1" id="file1"></td></tr>
         <tr><td>认定材料2</td><td><input type="file" value="" name="file2" id="file2"></td></tr>
     </table><br>
-    <input type="submit" value="申报">
+    <input type="submit" value="申 报">
 </form>
 </body>
 </html>

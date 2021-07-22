@@ -1,8 +1,9 @@
 package com.fcis.model.informationManagement.outstandingPersonDeclare;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class INFO {
+public class INFO implements Serializable {
     private String modelName;
     private String sex;
     private String nationality;
@@ -19,12 +20,12 @@ public class INFO {
     @Override
     public String toString() {
         return "INFO{" +
-                ", modelName='" + modelName + '\'' +
-                ", sex=" + sex +
-                ", nationality=" + nationality +
+                "modelName='" + modelName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", nationality='" + nationality + '\'' +
                 ", born=" + born +
-                ", education=" + education +
-                ", politicalState=" + politicalState +
+                ", education='" + education + '\'' +
+                ", politicalState='" + politicalState + '\'' +
                 ", organization='" + organization + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
                 ", getModelWorkerTitleTime=" + getModelWorkerTitleTime +

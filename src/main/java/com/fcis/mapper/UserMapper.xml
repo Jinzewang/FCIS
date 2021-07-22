@@ -3,6 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fcis.mapper.UserMapper">
+	
+	<sql id="BaseSql">
+		modelWorkerTitle,modelWorkerTreatment,info,addinfo,certifiedMaterials,isCertified
+	</sql>
+	<!--  查询劳模按分页展示	-->
+	<!--<select id="gerAllUser" resultMap="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker">
+		select <include refid="BaseSql"/> from MODEL_WORKER
+		<where>
+			<if test="username != null">
+				and  username = #{username}
+			</if>
+			<if test="otherCondition!=null">
+&#45;&#45; 				and  other = #{otherCondition} other字段不清楚
+			</if>
+		</where>
+	</select>-->
     <!-- 目的：为DAO接口方法提供sql语句配置 -->
     <!-- 查询用户和密码进行登录 -->
     <select id="findByUsername" resultType="User" parameterType="String">
@@ -11,6 +27,11 @@
 
 	</select>
 
+	<update id="updatePassWord">
+		update user
+		set password = #{newPassWord}
+		where password = #{oldPassWord}
+	</update>
 <!--     增加用户名和密码进行注册  -->
     <insert id="registerByUsernameAndPassword">
       	insert into user

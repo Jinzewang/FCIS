@@ -1,11 +1,14 @@
 package com.fcis.model.informationManagement.outstandingPersonDeclare;
 
-public class ModelWorker {
+import java.io.Serializable;
+
+public class ModelWorker implements Serializable {
     private String modelWorkerTitle;
     private String modelWorkerTreatment;
     private INFO info;
     private ADDINFO addinfo;
-    private Integer state;
+    private CertifiedMaterials certifiedMaterials;
+    private byte isCertified = 0;
 
     @Override
     public String toString() {
@@ -14,8 +17,17 @@ public class ModelWorker {
                 ", modelWorkerTreatment='" + modelWorkerTreatment + '\'' +
                 ", info=" + info +
                 ", addinfo=" + addinfo +
-                ", state=" + state +
+                ", certifiedMaterials=" + certifiedMaterials +
+                ", isCertified=" + isCertified +
                 '}';
+    }
+
+    public CertifiedMaterials getCertifiedMaterials() {
+        return certifiedMaterials;
+    }
+
+    public void setCertifiedMaterials(CertifiedMaterials certifiedMaterials) {
+        this.certifiedMaterials = certifiedMaterials;
     }
 
     public String getModelWorkerTitle() {
@@ -48,13 +60,5 @@ public class ModelWorker {
 
     public void setAddinfo(ADDINFO addinfo) {
         this.addinfo = addinfo;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
     }
 }
