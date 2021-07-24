@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    /* height: 3000px; */
+}
+
+li {
+    /* 清除源点 */
+    list-style: none;
+}
+
+a {
+    /* 清除下划线 */
+    text-decoration: none;
+}
+
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.body {
+    height: 100%;
+}
+
+/*头部制作*/
+.header {
+    height: 222px;
+    background-color: #FFF7F8;
+}
+
+.header img {
+    height: 222px;
+    float: left;
+}
+
+.header .head {
+    color: #CC000F;
+    font-family: "华文行楷";
+}
+
+.header .head .headr {
+    float: right;
+    font-size: 25px;
+    margin-top: 100px;
+    margin-right: 50px;
+}
+
+.header .head .headr .p1 {
+    margin-left: 50px;
+    margin-top: -30px;
+}
+
+.header .head .hea {
+    font-size: 100px;
+    margin-top: 60px;
+    float: right;
+    margin-right: 20px;
+}
+
+/*登录制作*/
+.logon {
+    font-size: 136%;
+    margin-top: 7%;
+    margin-left: 40%;
+}
+
+.logon input {
+    border: none;
+    border-bottom: solid;
+}
+
+.logon .blogon {
+    border: none;
+    color: white;
+    font-size: 100%;
+    margin-left: 10%;
+    background-color: #55beea;
+    border-radius: 20%;
+}
+
+/*底部制作*/
+.foot {
+    margin-top: 130.5px;
+    height: 48px;
+    background-color: red;
+}

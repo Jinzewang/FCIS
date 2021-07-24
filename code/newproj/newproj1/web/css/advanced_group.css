@@ -1,0 +1,90 @@
+.ta {
+    float: left;
+    margin-left: 20px;
+    position: relative;
+}
+
+.ta tr, td {
+    background-color: #fff;
+}
+
+.ta input {
+    float: left;
+    width: 142px;
+    height: 40px;
+    border: none;
+}
+
+.ta .btn input {
+    float: left;
+    width: 50px;
+    height: 40px;
+    margin: 0 2px;
+}
+
+/*申报制作*/
+
+.ta .apply {
+    float: left;
+    width: 750px;
+    height: 449px;
+    background-color: #fff;
+    margin-left: 330px;
+    margin-top: -450px;
+    position: absolute;
+    border: 0.5px solid black;
+}
+
+.ta .apply .q {
+    width: 320px;
+    margin-left: 220px;
+    font-size: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: -30px;
+    background-color: white;
+    font-family: "华文行楷";
+}
+
+.ta .apply span {
+    font-size: 20px;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+.ta .apply input {
+    float: none;
+    margin-top: 20px;
+    height: 30px;
+    width: 140px;
+    border: 1px solid;
+}
+
+.ta .apply .sb {
+    margin-top: 20px;
+}
+
+.ta .apply select {
+    margin-top: 20px;
+    height: 30px;
+    width: 140px;
+}
+
+.ta .apply .cc1 {
+    float: left;
+    font-size: 20px;
+    width: 60px;
+    height: 30px;
+    margin-left: 300px;
+    margin-top: 80px;
+}
+
+.ta .apply .cc2 {
+    float: left;
+    font-size: 20px;
+    width: 60px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 80px;
+}
