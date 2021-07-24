@@ -74,9 +74,9 @@ a {
 
 /*登录制作*/
 .logon {
-    font-size: 136%;
-    margin-top: 7%;
-    margin-left: 40%;
+    font-size: 22px;
+    margin-top: 107.5px;
+    margin-left: 600px;
 }
 
 .logon input {
@@ -87,15 +87,16 @@ a {
 .logon .blogon {
     border: none;
     color: white;
-    font-size: 100%;
-    margin-left: 10%;
+    font-size: 28px;
+    margin-left: 78px;
     background-color: #55beea;
-    border-radius: 20%;
+    border-radius: 10px;
+    width: 170px;
 }
 
 /*底部制作*/
 .foot {
-    margin-top: 130.5px;
-    height: 48px;
+    margin-top: 207px;
+    height: 51px;
     background-color: red;
 }
