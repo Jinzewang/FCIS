@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    /* height: 3000px; */
+}
+
+li {
+    /* 清除源点 */
+    list-style: none;
+}
+
+a {
+    /* 清除下划线 */
+    text-decoration: none;
+}
+
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+.body {
+    height: 100%;
+}
+
+/*头部制作*/
+.header {
+    height: 100px;
+    background-color: #FFF7F8;
+}
+
+.header img {
+    width: 100px;
+    float: left;
+    height: 100px;
+    margin-left: 49px;
+}
+
+.header div {
+    float: left;
+    margin-top: 40px;
+    margin-left: 25px;
+    font-size: 28px;
+    color: #cc0000;
+    font-family: "华文行楷";
+}
+
+.header div .p1 {
+    margin-left: 55px;
+    margin-top: -35px;
+}
+
+/*bars部分制作*/
+.bars {
+    height: 42px;
+    background-color: #CC000F;
+    font-size: 15px;
+    color: #fff;
+}
+
+.bars .bar div {
+    float: left;
+    margin-left: 105px;
+    margin-top: 10px;
+}
+
+.bars .ba div {
+    float: right;
+    margin-right: 70px;
+    margin-top: 10px;
+}
+
+.bar div:hover {
+    color: skyblue;
+}
+
+.ba div:hover {
+    color: skyblue;
+}
+
+/*表单制作*/
+.pcenter {
+    margin-top: 25px;
+    font-size: 50px;
+    margin-left: 20px;
+    font-family: "华文行楷";
+}
+
+/*表格上方制作*/
+.formt {
+    margin-top: 40px;
+}
+
+.formt .import_export {
+    float: left;
+    font-size: 42px;
+    font-family: "华文行楷";
+    margin-left: 55px;
+    margin-top: -0.8px;
+}
+
+.formt .declare {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: solid;
+    margin-left: 70px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.formt .declare:hover {
+    font-size: 15px;
+    margin-top: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.formt input {
+    width: 200px;
+    height: 30px;
+    float: right;
+    margin-top: 15px;
+}
+
+.formt .query input {
+    width: 50px;
+    height: 30px;
+    float: right;
+    margin-right: 62px;
+    margin-top: 15px;
+}
+
+.dao {
+    float: right;
+    width: 80px;
+    height: 30px;
+}
+
+/*表格设计*/
+.ta {
+    float: left;
+    margin-left: 3%;
+    position: relative;
+}
+
+.ta tr, td {
+    background-color: #fff;
+}
+
+.ta input {
+    float: left;
+    width: 156.5px;
+    height: 40px;
+    border: none;
+}
+
+.ta .btn input {
+    float: left;
+    width: 50px;
+    height: 40px;
+    margin: 0 2px;
+}
+
+/*数据导入模板*/
+.import {
+    width: 474px;
+    height: 377px;
+    position: absolute;
+    border: 0.5px solid;
+    background-color: white;
+    margin-left: 520px;
+    padding-top: 50px;
+}
+
+.import .im {
+    font-size: 30px;
+    margin-left: 93px;
+}
+
+.import .is {
+    width: 120px;
+    height: 40px;
+    vertical-align: top;
+    font-size: 20px;
+}
+
+.import .bot {
+    font-size: 20px;
+    width: 115px;
+    height: 40px;
+    margin-left: 170px;
+    margin-top: 50px;
+}
+
+.import .in {
+    font-size: 20px;
+    width: 115px;
+    height: 40px;
+}

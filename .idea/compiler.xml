@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="FCIS" />
+        <module name="项目" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="12" />
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fcis.mapper.AdvancedCollectiveDao">
+<!--    保存先进集体信息-->
+    <insert id="insertAdvanceCollective" parameterType="com.fcis.model.informationManagement.advancedCollective.CollectiveInfo">
+        insert into advanced_collective
+        (advanced_title,advanced_provance,company_name,principal_name,principal_phone,addvance_outstanding,reasonof_cancel)
+        values
+        (#{collectiveTitle},#{collectiveProvance},#{companyName},#{principalName},#{principalPhone},#{collectiveOutstanding},#{collectiveCancel})
+    </insert>
+
+<!--    按称号查询先进集体，返回所有集体并分页展示-->
+    <sql id="advanceBaseSql">
+        advanced_id,isDeleteAdvance,advanced_title,advanced_provance,company_name,principal_name,principal_phone
+    </sql>
+    <select id="selectAdvanceCollective" resultType="com.fcis.model.informationManagement.advancedCollective.CollectiveInfo">
+        select <include refid="advanceBaseSql"/> from advanced_collective
+        where advanced_title = #{collectiveTitle}
+    </select>
+
+<!--    删除先进集体-->
+    <update id="deleteAdvance" parameterType="Integer">
+        update advanced_collective set isDeleteAdvance=1 where advanced_id=#{id}
+    </update>
+    <select id="deleteSuccess" parameterType="Integer" resultType="Integer">
+        select isDeleteAdvance from advanced_collective where advanced_id=#{id}
+    </select>
+</mapper>

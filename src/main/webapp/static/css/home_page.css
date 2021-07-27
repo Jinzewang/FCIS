@@ -58,6 +58,13 @@ a {
 
 }
 
+.header img {
+    width: 100px;
+    float: left;
+    height: 100px;
+    margin-left: 49px;
+}
+
 .header div {
     float: left;
     margin-top: 25px;
@@ -91,9 +98,13 @@ a {
     margin-top: 5px;
 }
 
-.bars div:hover {
-    color: skyblue;
-}
+/*.bar div:hover {*/
+/*    color: skyblue;*/
+/*}*/
+
+/*.ba div:hover {*/
+/*    color: skyblue;*/
+/*}*/
 
 /*表单制作*/
 .pcenter {

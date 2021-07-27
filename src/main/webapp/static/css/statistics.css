@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    /* height: 3000px; */
+}
+
+li {
+    /* 清除源点 */
+    list-style: none;
+}
+
+a {
+    /* 清除下划线 */
+    text-decoration: none;
+}
+
+/* 清除浮动 */
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+.body {
+    height: 100%;
+}
+
+/*头部制作*/
+.header {
+    height: 100px;
+    background-color: #FFF7F8;
+}
+
+.header img {
+    width: 100px;
+    float: left;
+    height: 100px;
+    margin-left: 49px;
+}
+
+.header div {
+    float: left;
+    margin-top: 40px;
+    margin-left: 25px;
+    font-size: 28px;
+    color: #cc0000;
+    font-family: "华文行楷";
+}
+
+.header div .p1 {
+    margin-left: 55px;
+    margin-top: -35px;
+}
+
+/*bars部分制作*/
+.bars {
+    height: 42px;
+    background-color: #CC000F;
+    font-size: 15px;
+    color: #fff;
+}
+
+.bars .bar div {
+    float: left;
+    margin-left: 105px;
+    margin-top: 10px;
+}
+
+.bars .ba div {
+    float: right;
+    margin-right: 70px;
+    margin-top: 10px;
+}
+
+.bar div:hover {
+    color: skyblue;
+}
+
+.ba div:hover {
+    color: skyblue;
+}
+
+/*表单制作*/
+.pcenter {
+    margin-top: 25px;
+    font-size: 50px;
+    margin-left: 20px;
+    font-family: "华文行楷";
+}
+
+input {
+    width: 330px;
+    height: 40px;
+    margin-left: 650px;
+    /*解决高度不匹配问题*/
+    vertical-align: top;
+}
+
+span {
+    font-size: 30px;
+}
+
+

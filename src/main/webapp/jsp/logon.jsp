@@ -25,14 +25,16 @@
     </div>
 </div>
 <%--登录制作--%>
-<div class="logon">
-    <div class="uname"><span>用户名:</span><input type="text" name="username"></div>
-    <br>
-    <div class="passd"><span>密&nbsp;&nbsp;&nbsp;码:</span><input type="password" name="password">
-        <span class="wpassd" onclick="window.location.href='password_reset.jsp'">忘记密码</span></div>
-    <br>
-    <input type="button" class="blogon" onclick="window.location.href='/checkLogin'" value="登录">
-</div>
+<form action="/checklogin">
+    <div class="logon">
+        <div class="uname"><span>用户名:</span><input type="text"></div>
+        <br>
+        <div class="passd"><span>密&nbsp;&nbsp;&nbsp;码:</span><input type="password">
+            <span class="wpassd" onclick="window.location.href='password_reset.jsp'">忘记密码</span></div>
+        <br>
+        <input type="submit" class="blogon" value="登录">
+    </div>
+</form>
 <%--底部制作--%>
 <div class="foot"></div>
 </body>

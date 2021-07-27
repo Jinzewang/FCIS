@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fcis.mapper.AuditDao">
+    <update id="auditModelWorker">
+        update model_worker
+        set modelworker_treatment=#{modelWorkerTreatment},moderworker_review=#{reviewModelWorker},modelworker_state=2
+        where modelworker_id=#{id}
+    </update>
+</mapper>

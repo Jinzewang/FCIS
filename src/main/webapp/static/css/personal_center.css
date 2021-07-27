@@ -44,14 +44,11 @@ a {
     background-color: #FFF7F8;
 }
 
-.header .hea {
-    font-size: 80px;
-    font-family: "华文行楷";
+.header img {
+    width: 100px;
     float: left;
-    color: #cc0000;
-    margin-left: 60px;
-    margin-top: 12px;
-
+    height: 100px;
+    margin-left: 49px;
 }
 
 .header div {
@@ -99,30 +96,69 @@ a {
 .pcenter {
     margin-top: 20px;
     font-size: 40px;
-    margin-left: 15px;
+    margin-left: 50px;
     font-family: "华文行楷";
 }
 
 .mainb {
-    margin-left: 50px;
     font-size: 20px;
-
+    margin-left: 20px;
 }
 
 .mainb img {
-    width: 110px;
+    width: 100px;
     height: 100px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 50px;
 }
 
+.mainb .mleft {
+    width: 730px;
+    float: left;
+    height: 400px;
+    border-top: 0.5px solid;
+    border-right: 0.5px solid;
+}
 
-.mainb .honor {
+.mainb .mleft input {
+    height: 20px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.mainb .mleft span {
+    margin-left: 20px;
+}
+
+.mainb .mright {
     float: right;
+    width: 750px;
+    height: 400px;
+    border-top: 0.5px solid;
+    border-left: 0.5px solid;
+}
+
+.mright .mr1 {
+    margin-left: 20px;
+    float: left;
+}
+
+.mright .mr2 {
+    margin-left: 90px;
+    float: left;
+}
+
+.mright .mt {
+    float: right;
+    margin-right: 52px;
 }
 
 .mainb .revise {
     margin-top: 20px;
     margin-right: 45px;
     font-size: 20px;
+    margin-left: 635px;
 }
 
 .mainb .reset {

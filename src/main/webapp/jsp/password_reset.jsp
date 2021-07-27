@@ -13,12 +13,6 @@
     <link rel="stylesheet" href="/static/css/password_reset.css">
     <style>
 
-        /*@media screen and (max-device-width: 400px) {*/
-        /*    * {*/
-        /*        float: none;*/
-        /*    }*/
-        /*}*/
-
         .tips {
             display: none;
         }

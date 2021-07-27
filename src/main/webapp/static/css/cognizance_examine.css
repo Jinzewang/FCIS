@@ -54,6 +54,13 @@ a {
 
 }
 
+.header img {
+    width: 100px;
+    float: left;
+    height: 100px;
+    margin-left: 49px;
+}
+
 .header div {
     float: left;
     margin-top: 40px;

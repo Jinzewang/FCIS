@@ -16,18 +16,19 @@
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <div class="hea">ZGH</div>
+    <img src="/static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>
 <%--bars部分制作--%>
 <div class="bars">
     <div class="bar">
-        <div onclick="window.location.href='home_page.jsp'">首页</div>
+        <div style="margin-left: 80px" onclick="window.location.href='home_page.jsp'">首页</div>
         <div onclick="window.location.href='Advanced_individual.jsp'" target="_blank">先进个人信息管理</div>
         <div onclick="window.location.href='advanced_group.jsp'">先进集体信息管理</div>
         <div onclick="window.location.href='cognizance_examine.jsp'">认定与审核</div>
-        <div onclick="window.location.href='home_page.jsp'">账户管理</div>
+        <div onclick="window.location.href='statistics.jsp'">信息统计</div>
+        <div onclick="window.location.href='import_export.jsp'">导入导出</div>
     </div>
     <div class="ba">
         <div onclick="window.location.href='logon.jsp'">退出</div>
@@ -42,20 +43,24 @@
 <br>
 <%--主体部分--%>
 <div class="mainb">
-    <div><img src="#"></div>
-    <br>
-    <div class="uname"><span>姓名：</span><input type="text" disabled="disabled"></div>
-    <div class="honor"><span>所得荣誉：</span></div>
-    <br>
-    <div class="worknumber"><span>工号：</span><input type="text" disabled="disabled"></div>
-    <br>
-    <div class="department"><span>部门：</span><input type="text" disabled="disabled"></div>
-    <br>
-    <div class="posts"><span>职位：</span><input type="text" disabled="disabled"></div>
-    <br>
-    <div class="email"><span>电子邮箱：</span><input type="text" disabled="disabled"></div>
-    <br>
-    <input type="button" class="revise" value="修改资料">
+    <div class="mleft">
+        <img src="#">
+        <span>姓名:</span><input type="text" readonly="readonly" style="margin-right: 150px;margin-top: 50px" value="">
+        <span>民族:</span><input type="text" readonly="readonly" value=""><br>
+        <span>工号:</span><input type="text" readonly="readonly" style="margin-right: 150px" value="">
+        <span>部门:</span><input type="text" readonly="readonly" value=""><br>
+        <span>性别:</span><input type="text" readonly="readonly" style="margin-right: 150px" value="">
+        <span>职位:</span><input type="text" readonly="readonly" value=""><br>
+        <span style="margin-left: 150px">电话:</span><input type="text" readonly="readonly" style="margin-right: 150px"
+                                                          value="">
+        <span>地域:</span><input type="text" readonly="readonly" value=""><br>
+        <span style="margin-left: 150px">电子邮箱:</span><input type="text" readonly="readonly" value="">
+    </div>
+    <div class="mright">
+        <span class="mr1">所得荣誉:</span><textarea style="float: left" cols="25" rows="5" readonly="readonly"></textarea>
+        <span class="mr2">所享受待遇:</span><textarea class="mt" cols="25" rows="5" readonly="readonly"></textarea>
+    </div>
+    <input type="button" class="revise" onclick="window.location.href='modify_data.jsp'" value="修改资料">
     <input type="button" class="reset" value="重置密码">
 </div>
 </body>
