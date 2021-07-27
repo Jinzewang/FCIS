@@ -173,7 +173,7 @@ a {
 
 /*申报制作*/
 
-.ta .apply {
+.ta .cognizance {
     float: left;
     width: 750px;
     height: 449px;
@@ -184,7 +184,7 @@ a {
     border: 0.5px solid black;
 }
 
-.ta .apply .q {
+.ta .cognizance .q {
     width: 320px;
     margin-left: 220px;
     font-size: 30px;
@@ -196,13 +196,13 @@ a {
     font-family: "华文行楷";
 }
 
-.ta .apply span {
+.ta .cognizance span {
     font-size: 20px;
     margin-left: 90px;
     margin-top: 20px;
 }
 
-.ta .apply input {
+.ta .cognizance input {
     float: none;
     margin-top: 20px;
     height: 30px;
@@ -210,11 +210,7 @@ a {
     border: 1px solid;
 }
 
-.ta .apply .sb {
-    margin-top: 20px;
-}
-
-.ta .apply select {
+.ta .cognizance select {
     margin-top: 20px;
     height: 30px;
     width: 140px;
@@ -230,10 +226,13 @@ a {
 
 /*申报*/
 /*第一个小页面的制作*/
+.ta #step1 {
+    margin: 75px 0 30px 165px;
+}
 
 .ta #step1 .st2 {
     width: 300px;
-    display: inline-block;
+    margin-left: 70px;
 }
 
 .ta #step1 .st1 {
@@ -243,154 +242,10 @@ a {
 .ta #step1 .st1, st2 {
     margin-top: 20px;
     width: 300px;
-    display: inline-block;
 }
 
-/*第二个小页面的制作*/
-.ta #step2 .cc1, .cc2 {
-    float: left;
-    width: 140px;
-    height: 30px;
-    margin-left: 30px;
-    margin-top: 20px;
-}
-
-.ta #step2 .cc1 {
-    margin-left: 188px;
-}
-
-.ta .step3 {
-    margin-top: 30px;
+.ta .step2 {
+    margin-top: 80px;
     font-size: 20px;
-    margin-left: 215px;
+    margin-left: 237px;
 }
-
-/*修改*/
-
-.ta .modify {
-    float: left;
-    width: 750px;
-    height: 449px;
-    background-color: #fff;
-    margin-left: 330px;
-    margin-top: -492px;
-    position: absolute;
-    border: 0.5px solid black;
-}
-
-.ta .modify .q {
-    width: 320px;
-    margin-left: 220px;
-    font-size: 30px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    margin-top: -30px;
-    background-color: white;
-    font-family: "华文行楷";
-}
-
-.ta .modify span {
-    font-size: 20px;
-    margin-left: 90px;
-    margin-top: 20px;
-}
-
-.ta .modify input {
-    float: none;
-    margin-top: 20px;
-    height: 30px;
-    width: 140px;
-    border: 1px solid;
-}
-
-.ta .modify select {
-    margin-top: 20px;
-    height: 30px;
-    width: 140px;
-}
-
-.ta .modify .st1 span {
-    margin-left: 0;
-}
-
-.ta .modify .st2 span {
-    margin-left: 0;
-}
-
-/*第一个小页面的制作*/
-/*.ta #step5 .st1 {*/
-/*    margin-top: 80px;*/
-/*}*/
-
-/*.ta #step5 .st2 {*/
-/*    margin-left: 100px;*/
-/*}*/
-
-/*.ta #step5 .st1, st2 {*/
-/*    margin-top: 20px;*/
-/*    margin-left: 100px;*/
-/*}*/
-
-/*.ta #step5 .cc1, .cc2 {*/
-/*    float: left;*/
-/*    font-size: 20px;*/
-/*    width: 140px;*/
-/*    height: 30px;*/
-/*    margin-left: 240px;*/
-/*    margin-top: 50px;*/
-/*}*/
-
-/*.ta #step5 .cc2 {*/
-/*    margin-left: 30px;*/
-/*    margin-top: 50px;*/
-/*}*/
-
-/*!*第二个小页面的制作*!*/
-/*.ta #step6 .cc1, .cc2, .cc3 {*/
-/*    float: left;*/
-/*    font-size: 20px;*/
-/*    width: 140px;*/
-/*    height: 30px;*/
-/*    margin-left: 30px;*/
-/*    margin-top: 20px;*/
-/*}*/
-
-/*.ta #step6 .cc1 {*/
-/*    margin-left: 188px;*/
-/*}*/
-/*第一个小页面的制作*/
-
-/*.ta #step1 .st2 {*/
-/*    width: 300px;*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.ta #step1 .st1 {*/
-/*    margin-left: 75px;*/
-/*}*/
-
-/*.ta #step1 .st1, st2 {*/
-/*    margin-top: 20px;*/
-/*    width: 300px;*/
-/*    display: inline-block;*/
-/*}*/
-
-/*!*第二个小页面的制作*!*/
-/*.ta #step2 .cc1, .cc2 {*/
-/*    float: left;*/
-/*    font-size: 20px;*/
-/*    width: 140px;*/
-/*    height: 30px;*/
-/*    margin-left: 30px;*/
-/*    margin-top: 20px;*/
-/*}*/
-
-/*.ta #step2 .cc1 {*/
-/*    margin-left: 188px;*/
-/*}*/
-
-/*.ta .step3 {*/
-/*    margin-top: 30px;*/
-/*    font-size: 20px;*/
-/*}*/

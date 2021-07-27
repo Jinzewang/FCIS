@@ -12,6 +12,7 @@
     <title>先进集体管理</title>
     <link rel="stylesheet" href="css/advanced_group.css">
     <style>
+        /*将申报和修改页面进行隐藏*/
         .apply {
             display: none;
         }
@@ -22,16 +23,41 @@
     </style>
     <script type="text/javascript">
         function changeVisibilityv() {
+            //申报按钮的实现
             $(".apply").css("display", "block");
+            $(".modify").css("display", "none");
+
         }
 
         function changeVisibilitym() {
+            //修改按钮的实现
             $(".modify").css("display", "block");
+            $(".apply").css("display", "none");
         }
 
         function changeVisibilityh() {
+            //取消的方法
             $(".apply").css("display", "none");
             $(".modify").css("display", "none");
+            $(".apply").find('input[type=text],select,input[type=hidden]').each(function () {
+                $(this).val('');
+            });
+        }
+
+        function submit() {
+            //提交所使用的方法
+            $(".apply").css("display", "none");
+            $(".modify").css("display", "none");
+            //在这可以写一个跳转，现将数据给数据库
+
+            refresh();
+        }
+
+        function refresh() {
+            //逐条清空表单的数据
+            $(".apply").find('input[type=text],select,input[type=hidden]').each(function () {
+                $(this).val('');
+            });
         }
     </script>
 </head>
@@ -48,14 +74,14 @@
     <div class="bar">
         <div onclick="window.location.href='home_page.jsp'">首页</div>
         <div onclick="window.location.href='Advanced_individual.jsp'" target="_blank">先进个人信息管理</div>
-        <div>先进集体信息管理</div>
-        <div>认定与审核</div>
-        <div>账户管理</div>
+        <div onclick="window.location.href='advanced_group.jsp'">先进集体信息管理</div>
+        <div onclick="window.location.href='cognizance_examine.jsp'">认定与审核</div>
+        <div onclick="window.location.href='home_page.jsp'">账户管理</div>
     </div>
     <div class="ba">
-        <div>退出</div>
-        <div>登录</div>
-        <div>个人中心</div>
+        <div onclick="window.location.href='logon.jsp'">退出</div>
+        <div onclick="window.location.href='logon.jsp'">登录</div>
+        <div onclick="window.location.href='personal_center.jsp'">个人中心</div>
     </div>
 </div>
 <%--表格上方制作--%>
@@ -83,6 +109,7 @@
             <th>集体负责人</th>
             <th>操作</th>
         </tr>
+        <%--        用分页方法重构一次--%>
         <% for (int i = 0; i < 10; i++) {%>
         <tr>
             <td><input type="text"></td>
@@ -103,60 +130,88 @@
     <%--申请表制作--%>
     <div class="apply">
         <div class="q">先进集体信息申报</div>
-        <div style="margin-top: 40px">
-            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span><input type="text">
-            <span>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:</span><input type="text">
+        <%--        第一个小页面--%>
+        <div id="step1" style="margin-bottom: 30px">
+            <div class="st1"><span>&nbsp;选择劳模称号:</span>
+                <select name="modelWorkerTitle">
+                    <option value="nationalModelWorker">全国劳模</option>
+                    <option value="SichuanModelWorker">四川省劳模</option>
+                    <option value="national51ModelWorker">全国五一劳动奖章</option>
+                    <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
+                    <option value="other">其他劳动荣誉称号</option>
+                </select></div>
+            <div class="st2"><span>&nbsp;选择劳模待遇:</span>
+                <select name="modelWorkerTreatment">
+                    <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
+                    <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
+                    <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
+                    <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
+                </select>
+            </div>
         </div>
-        <div>
-            <span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span><input type="text">
-            <span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span><input type="text"><br>
+        <%--        <br>--%>
+        <hr>
+        <%--        第二个小页面--%>
+        <div id="step2">
+            <div style="margin-top: 30px">
+                <span>所属市州产业:</span><input type="text">
+                <span>单位名称:</span><input type="text">
+            </div>
+            <div>
+                <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
+                <span>联系方式:</span><input type="text"><br>
+            </div>
+            <div>
+                <span>主要突出事迹:</span><input type="text">
+            </div>
         </div>
-        <div>
-            <span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:</span><input type="text">
-            <span>部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</span><input type="text"><br>
+        <div class="step3">
+            <input type="button" class="cc1" onclick="submit()" value="提交">
+            <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
         </div>
-        <div class="sb">
-            <span>申报类型:</span>
-            <select>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-            </select>
-            <span>集体负责人:</span><input type="text"><br>
-        </div>
-        <div><span>证明材料:</span><input type="text"></div>
-        <input type="button" class="cc1" value="提交">
-        <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
     </div>
     <%--修改制作--%>
     <div class="modify">
         <div class="q">先进集体信息修改</div>
-        <div style="margin-top: 40px">
-            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</span><input type="text">
-            <span>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:</span><input type="text">
+        <%--        第一个小页面--%>
+        <div id="step1" style="margin-bottom: 30px">
+            <div class="st1"><span>&nbsp;选择劳模称号:</span>
+                <select name="modelWorkerTitle">
+                    <option value="nationalModelWorker">全国劳模</option>
+                    <option value="SichuanModelWorker">四川省劳模</option>
+                    <option value="national51ModelWorker">全国五一劳动奖章</option>
+                    <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
+                    <option value="other">其他劳动荣誉称号</option>
+                </select></div>
+            <div class="st2"><span>&nbsp;选择劳模待遇:</span>
+                <select name="modelWorkerTreatment">
+                    <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
+                    <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
+                    <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
+                    <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
+                </select>
+            </div>
         </div>
-        <div>
-            <span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span><input type="text">
-            <span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span><input type="text"><br>
+        <%--        <br>--%>
+        <hr>
+        <%--        第二个小页面--%>
+        <div id="step2">
+            <div style="margin-top: 30px">
+                <span>所属市州产业:</span><input type="text">
+                <span>单位名称:</span><input type="text">
+            </div>
+            <div>
+                <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
+                <span>联系方式:</span><input type="text"><br>
+            </div>
+            <div>
+                <span>主要突出事迹:</span><input type="text">
+            </div>
         </div>
-        <div>
-            <span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:</span><input type="text">
-            <span>部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:</span><input type="text"><br>
+        <div class="step3">
+            <input type="button" class="cc1" onclick="submit()" value="提交">
+            <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
         </div>
-        <div class="sb">
-            <span>申报类型:</span>
-            <select>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-            </select>
-            <span>集体负责人:</span><input type="text"><br>
-        </div>
-        <div><span>证明材料:</span><input type="text"></div>
-        <input type="button" class="cc1" value="提交">
-        <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
     </div>
 </div>
 </body>

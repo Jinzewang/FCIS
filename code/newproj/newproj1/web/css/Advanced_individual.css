@@ -210,32 +210,11 @@ a {
     border: 1px solid;
 }
 
-.ta .apply .sb {
-    margin-top: 20px;
-}
 
 .ta .apply select {
     margin-top: 20px;
     height: 30px;
     width: 140px;
-}
-
-.ta .apply .cc1 {
-    float: left;
-    font-size: 20px;
-    width: 60px;
-    height: 30px;
-    margin-left: 300px;
-    margin-top: 80px;
-}
-
-.ta .apply .cc2 {
-    float: left;
-    font-size: 20px;
-    width: 60px;
-    height: 30px;
-    margin-left: 30px;
-    margin-top: 80px;
 }
 
 /*修改制作*/
@@ -277,30 +256,195 @@ a {
     border: 1px solid;
 }
 
-.ta .modify .sb {
-    margin-top: 20px;
-}
-
 .ta .modify select {
     margin-top: 20px;
     height: 30px;
     width: 140px;
 }
 
-.ta .modify .cc1 {
-    float: left;
-    font-size: 20px;
-    width: 60px;
-    height: 30px;
-    margin-left: 300px;
-    margin-top: 80px;
+/*申报*/
+/*第一个小页面的制作*/
+.ta #step1 {
+    margin: 75px 0 30px 50px;
 }
 
-.ta .modify .cc2 {
+.ta #step1 .st1 {
+    margin-top: 75px;
+    margin-left: 105px;
+}
+
+.ta #step1 .st2 {
+    width: 400px;
+    margin-left: 105px;
+}
+
+
+.ta #step1 .cc1, .cc2 {
     float: left;
     font-size: 20px;
-    width: 60px;
+    width: 140px;
+    height: 30px;
+    margin-left: 190px;
+    margin-top: 50px;
+}
+
+.ta #step1 .cc2 {
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+/*第二个小页面的制作*/
+.ta #step2 .cc1, .cc2, .cc3 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
     height: 30px;
     margin-left: 30px;
-    margin-top: 80px;
+    margin-top: 20px;
+}
+
+.ta #step2 .cc1 {
+    margin-left: 188px;
+}
+
+.ta #step2 .t1 {
+    width: 180px;
+}
+
+/*第三个小页面的制作*/
+.ta #step3 {
+    margin-left: 170px;
+}
+
+.ta #step3 .cc1, .cc2, .cc3 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+/*第四个页面的制作*/
+.ta #step4 span {
+    margin-top: 10px;
+    margin-left: 260px;
+}
+
+.ta #step4 input {
+    margin-top: 10px;
+}
+
+.ta #step4 {
+    font-size: 20px;
+}
+
+.ta #step4 .te1 {
+    width: 200px;
+}
+
+.ta #step4 .cc1, .cc2, .cc3 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.ta #step4 .cc1 {
+    margin-left: 188px;
+}
+
+/*修改*/
+/*第一个小页面的制作*/
+.ta #step5 {
+    margin: 75px 0 30px 50px;
+}
+
+.ta #step5 .st1 {
+    margin-top: 75px;
+    margin-left: 105px;
+}
+
+.ta #step5 .st2 {
+    width: 400px;
+    margin-left: 105px;
+}
+
+.ta #step5 .cc1, .cc2 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    margin-left: 190px;
+    margin-top: 50px;
+}
+
+.ta #step5 .cc2 {
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+/*第二个小页面的制作*/
+.ta #step6 .cc1, .cc2, .cc3 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.ta #step6 .cc1 {
+    margin-left: 188px;
+}
+
+.ta #step6 .t1 {
+    width: 180px;
+}
+
+/*第三个小页面的制作*/
+.ta #step7 {
+    margin-left: 170px;
+}
+
+.ta #step7 .cc1, .cc2, .cc3 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+/*第四个页面的制作*/
+.ta #step8 span {
+    margin-top: 10px;
+    margin-left: 260px;
+}
+
+.ta #step8 input {
+    margin-top: 10px;
+}
+
+.ta #step8 {
+    font-size: 20px;
+}
+
+.ta #step8 .te1 {
+    width: 200px;
+}
+
+.ta #step8 .cc1, .cc2, .cc3 {
+    float: left;
+    font-size: 20px;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.ta #step8 .cc1 {
+    margin-left: 188px;
 }
