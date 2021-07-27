@@ -3,28 +3,33 @@ package com.fcis.model.informationManagement.outstandingPersonDeclare;
 import java.io.Serializable;
 import java.util.Date;
 
-public class INFO implements Serializable {
-    private String modelName;
-    private String sex;
-    private String nationality;
-    private Date born;
-    private String education;
-    private String politicalState;
-    private String organization;
-    private String jobTitle;
-    private Date getModelWorkerTitleTime;
-    private String awardingUnit;
-    private String ID;
-    private String phone;
+public class Info implements Serializable {
+    private Integer id;
+    private String modelName; //姓名
+    private String sex; //性别
+    private String nationality; //民族
+    private Date born; //出生年月
+    private String education; //教育程度
+    private String provence; //所属省份/籍贯
+    private String politicalState; //政治面貌
+    private String organization; //工作单位
+    private String jobTitle; //职务
+    private Date getModelWorkerTitleTime; //获得称号时间
+//    private String create_time;
+    private String awardingUnit; //授予称号单位
+    private String ID; //身份证号
+    private String phone; //联系电话
 
     @Override
     public String toString() {
-        return "INFO{" +
-                "modelName='" + modelName + '\'' +
+        return "Info{" +
+                "id=" + id +
+                ", modelName='" + modelName + '\'' +
                 ", sex='" + sex + '\'' +
                 ", nationality='" + nationality + '\'' +
                 ", born=" + born +
                 ", education='" + education + '\'' +
+                ", provence='" + provence + '\'' +
                 ", politicalState='" + politicalState + '\'' +
                 ", organization='" + organization + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
@@ -33,6 +38,22 @@ public class INFO implements Serializable {
                 ", ID='" + ID + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public String getSex() {
@@ -51,12 +72,12 @@ public class INFO implements Serializable {
         this.nationality = nationality;
     }
 
-    public String getPoliticalState() {
-        return politicalState;
+    public Date getBorn() {
+        return born;
     }
 
-    public void setPoliticalState(String politicalState) {
-        this.politicalState = politicalState;
+    public void setBorn(Date born) {
+        this.born = born;
     }
 
     public String getEducation() {
@@ -67,20 +88,20 @@ public class INFO implements Serializable {
         this.education = education;
     }
 
-    public String getModelName() {
-        return modelName;
+    public String getProvence() {
+        return provence;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setProvence(String provence) {
+        this.provence = provence;
     }
 
-    public Date getBorn() {
-        return born;
+    public String getPoliticalState() {
+        return politicalState;
     }
 
-    public void setBorn(Date born) {
-        this.born = born;
+    public void setPoliticalState(String politicalState) {
+        this.politicalState = politicalState;
     }
 
     public String getOrganization() {

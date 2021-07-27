@@ -4,23 +4,33 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CertifiedMaterials implements Serializable {
-    private String awardingUnit;
-    private Date awardingTime;
-    private String recognitionFileName;
-    private Integer Symbol;
-    private String recognitionUnit;
-    private Date recognitionTime;
+    private Integer id;
+    private String awardingUnit; //授予单位
+    private Date awardingTime; //授予时间
+    private String recognitionFileName; //表彰决定文件名
+    private Integer symbol; //文件文号
+    private String recognitionUnit; //发文单位
+    private Date recognitionTime; //发文时间
 
     @Override
     public String toString() {
         return "CertifiedMaterials{" +
-                "awardingUnit='" + awardingUnit + '\'' +
+                "id=" + id +
+                ", awardingUnit='" + awardingUnit + '\'' +
                 ", awardingTime=" + awardingTime +
                 ", recognitionFileName='" + recognitionFileName + '\'' +
-                ", Symbol=" + Symbol +
+                ", symbol=" + symbol +
                 ", recognitionUnit='" + recognitionUnit + '\'' +
                 ", recognitionTime=" + recognitionTime +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getAwardingUnit() {
@@ -48,11 +58,11 @@ public class CertifiedMaterials implements Serializable {
     }
 
     public Integer getSymbol() {
-        return Symbol;
+        return symbol;
     }
 
     public void setSymbol(Integer symbol) {
-        Symbol = symbol;
+        this.symbol = symbol;
     }
 
     public String getRecognitionUnit() {

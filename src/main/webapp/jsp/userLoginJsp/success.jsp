@@ -17,7 +17,7 @@
 this is success page!
 
 <a href="/anotherpage">点我跳到另一个页面</a><br>
-<a href="/first">点我申报先进个人</a>
+<a href="/declare">点我申报先进个人</a>
 <form action="/outLogin" method="post">
     <table>
         <tr>

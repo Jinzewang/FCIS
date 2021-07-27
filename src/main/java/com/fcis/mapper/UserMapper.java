@@ -2,7 +2,6 @@ package com.fcis.mapper;
 
 import com.fcis.model.User;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

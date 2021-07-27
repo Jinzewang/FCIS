@@ -10,7 +10,9 @@
        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <mvc:resources mapping="/**" location="/"/>
+    <mvc:resources mapping="/static/css/**" location="/static/css/"/>
+    <mvc:resources mapping="/static/img/**" location="static/img/"/>
+    <mvc:resources mapping="/static/js/**" location="static/js/"/>
 
     <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">
         <property name="converters">
@@ -22,7 +24,7 @@
     <mvc:annotation-driven conversion-service="conversionService"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
-        <property name="prefix" value="/jsp/userLoginJsp/"/>
+        <property name="prefix" value="/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 </beans>

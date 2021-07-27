@@ -2,22 +2,32 @@ package com.fcis.model.informationManagement.outstandingPersonDeclare;
 
 import java.io.Serializable;
 
-public class ADDINFO implements Serializable {
-    private String stateofHealth;
-    private String stateofFamily;
-    private String stateofJob;
-    private String outstandingDeeds;
-    private Boolean modelWorkerTitle;
+public class AddInfo implements Serializable {
+    private Integer id;
+    private String stateofHealth; //健康状况
+    private String stateofFamily; //家庭情况
+    private String stateofJob; //就业情况
+    private String outstandingDeeds; //主要突出事迹
+    private Boolean modelWorkerTitle = false; //是否已获得称号
 
     @Override
     public String toString() {
-        return "ADDINFO{" +
-                "stateofHealth='" + stateofHealth + '\'' +
+        return "AddInfo{" +
+                "id=" + id +
+                ", stateofHealth='" + stateofHealth + '\'' +
                 ", stateofFamily='" + stateofFamily + '\'' +
                 ", stateofJob='" + stateofJob + '\'' +
                 ", outstandingDeeds='" + outstandingDeeds + '\'' +
                 ", modelWorkerTitle=" + modelWorkerTitle +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getStateofHealth() {

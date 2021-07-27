@@ -3,39 +3,50 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fcis.mapper.UserMapper">
-	
-	<sql id="BaseSql">
-		modelWorkerTitle,modelWorkerTreatment,info,addinfo,certifiedMaterials,isCertified
-	</sql>
-	<!--  查询劳模按分页展示	-->
-	<!--<select id="gerAllUser" resultMap="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker">
-		select <include refid="BaseSql"/> from MODEL_WORKER
+
+	<resultMap id="modelWorkerResultMap" type="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker">
+		<id column="modelworker_id" property="id"/>
+		<result column="modelworker_title" property="modelWorkerTitle"/>
+		<result column="modelworker_treatment" property="modelWorkerTreatment"/>
+		<result column="modelworker_state" property="isCertified"/>
+		<association property="info" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.Info">
+			<id column="info_id" property="id"/>
+			<result column="info_name" property="modelName"/>
+			<result column="sex" property="sex"/>
+			<result column="nationality" property="nationality"/>
+			<result column="phone" property="phone"/>
+		</association>
+	</resultMap>
+
+	<!-- 按条件（姓名，性别，民族，待遇或称号等）查询劳模分页展示	-->
+	<!--<select id="gerAllUser" parameterType="" resultMap="modelWorkerResultMap">
+		select * from model_worker
 		<where>
 			<if test="username != null">
-				and  username = #{username}
+				and username = #{username} &lt;!&ndash; 如何定位到姓名&ndash;&gt;
 			</if>
-			<if test="otherCondition!=null">
-&#45;&#45; 				and  other = #{otherCondition} other字段不清楚
+			<if test="otherCondition != null">
+				and other = #{otherCondition} &lt;!&ndash; 如何选择其他条件&ndash;&gt;
 			</if>
 		</where>
 	</select>-->
     <!-- 目的：为DAO接口方法提供sql语句配置 -->
     <!-- 查询用户和密码进行登录 -->
-    <select id="findByUsername" resultType="User" parameterType="String">
+    <select id="findByUsername" resultType="com.fcis.model.User" parameterType="String">
 
-		select * from user where username = #{username}
+		select * from user where user_name = #{username}
 
 	</select>
-
+<!--	修改密码-->
 	<update id="updatePassWord">
 		update user
-		set password = #{newPassWord}
-		where password = #{oldPassWord}
+		set user_password = #{newPassWord}
+		where user_password = #{oldPassWord}
 	</update>
 <!--     增加用户名和密码进行注册  -->
     <insert id="registerByUsernameAndPassword">
       	insert into user
-      	        (username,password)
+      	        (user_name,user_password)
      	    values
      	        (#{username},#{password})
      	</insert>

@@ -19,15 +19,16 @@ public class UserController {
     UserService userService;
 
     // 按条件查询劳模
-    @GetMapping("/users/{currPage}/{pageSize}")
-    public List<User> getAllUsers(String username, String otherCondition, @PathVariable("currPage") int currPage, @PathVariable("pageSize") int pageSize) {
+    @RequestMapping("/selectUsers/{currPage}/{pageSize}")
+    public List<User> getAllUsers(String username, String otherCondition
+            , @PathVariable("currPage") int currPage, @PathVariable("pageSize") int pageSize) {
         return userService.getAllUser(username, otherCondition, currPage, pageSize);
     }
 
     //正常访问login页面
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        return "logon";
     }
 
     // 修改密码
@@ -51,15 +52,14 @@ public class UserController {
     }
     //表单提交过来的路径
     @RequestMapping("/checkLogin")
-    public String checkLogin(User user, Model model){
+    public String checkLogin(String username, String password){
         //调用service方法
-        user = userService.checkLogin(user.getUsername(), user.getPassword());
+        User user = userService.checkLogin(username, password);
         //若有user则添加到model里并且跳转到成功页面
         if(user != null){
-            model.addAttribute("user",user);
-            return "success";
+            return "home_page";
         }
-        return "fail";
+        return "logon";
     }
 
     //测试超链接跳转到另一个页面是否可以取到session值
@@ -77,9 +77,9 @@ public class UserController {
         return "login";
     }
 
-    // 玩的
-    @RequestMapping("/first")
+    // 先进个人申报
+    @RequestMapping("/declare")
     public String getDeclare() {
-        return "modelWorkerDeclare";
+        return "selectTitleAndTreatment";
     }
 }
