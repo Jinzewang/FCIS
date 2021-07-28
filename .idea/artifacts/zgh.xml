@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-war" name="zgh">
-    <output-path>$PROJECT_DIR$/out/artifacts/zgh</output-path>
-    <root id="root">
-      <element id="module-output" name="项目" />
-    </root>
-  </artifact>
-</component>
