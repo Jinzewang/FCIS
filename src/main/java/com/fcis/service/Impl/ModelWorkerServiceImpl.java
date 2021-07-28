@@ -74,4 +74,10 @@ public class ModelWorkerServiceImpl implements ModelWorkerService {
         // 还差企事业单位领导数，农村劳模数等 然后把这些封装成 list 返回
         return -1;
     }
+
+    @Override
+    public List<ModelWorker> modelWorkersDetails(Integer id) {
+        List<ModelWorker> modelWorkersDetails = modelWorkerDao.modelWorkerDetails(id);
+        return modelWorkersDetails;
+    }
 }

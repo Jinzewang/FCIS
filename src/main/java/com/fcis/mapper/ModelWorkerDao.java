@@ -51,4 +51,11 @@ public interface ModelWorkerDao {
      * @return
      */
     List<Integer> selectRetireModel(@Param("stateofJob") String stateofJob);
+
+    /**
+     * 查询劳模所有信息
+     * @param id 劳模id
+     * @return
+     */
+    List<ModelWorker> modelWorkerDetails(Integer id);
 }

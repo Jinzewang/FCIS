@@ -40,4 +40,11 @@ public interface ModelWorkerService {
      * @return
      */
     int selectTotalModelWorker(String stateofJob);
+
+    /**
+     * 查询劳模的详细信息
+     * @param id
+     * @return
+     */
+    List<ModelWorker> modelWorkersDetails(Integer id);
 }

@@ -1,6 +1,7 @@
 package com.fcis.controller;
 
 import com.fcis.model.User;
+import com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker;
 import com.fcis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +20,10 @@ public class UserController {
     UserService userService;
 
     // 按条件查询劳模
-    @RequestMapping("/selectUsers/{currPage}/{pageSize}")
-    public List<User> getAllUsers(String username, String otherCondition,String sex,String nationality,String politicalState
-            , @PathVariable("currPage") int currPage, @PathVariable("pageSize") int pageSize) {
-        return userService.getAllUser(username, otherCondition,sex,nationality,politicalState, currPage, pageSize);
+    @RequestMapping("/selectUsers/{currPage}")
+    public List<ModelWorker> getAllUsers(String username, String otherCondition, String sex, String nationality, String politicalState
+            , @PathVariable("currPage") int currPage) {
+        return userService.getAllUser(username, otherCondition,sex,nationality,politicalState, currPage, 9);
     }
 
     //正常访问login页面
@@ -34,7 +35,7 @@ public class UserController {
     // 修改密码
     @RequestMapping("/updatePasswd")
     public String updatePasswd() {
-        return "updatePassword";
+        return "password_reset";
     }
     // 确认修改密码
 
@@ -77,9 +78,4 @@ public class UserController {
         return "logon";
     }
 
-    // 先进个人申报
-    @RequestMapping("/declare")
-    public String getDeclare() {
-        return "selectTitleAndTreatment";
-    }
 }

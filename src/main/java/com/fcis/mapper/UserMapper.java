@@ -1,6 +1,7 @@
 package com.fcis.mapper;
 
 import com.fcis.model.User;
+import com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -17,8 +18,8 @@ public interface UserMapper {
      * @param politicalState 按照社会属性查询 政治状态
      * @return
      */
-    List<User> gerAllUser(@Param("username") String username
-            ,@Param("politicalState") String politicalState
+    List<ModelWorker> gerAllUser(@Param("username") String username
+            , @Param("politicalState") String politicalState
             , @Param("otherCondition") String otherCondition
             , @Param("sex")String sex, @Param("nationality") String nationality);
     /**

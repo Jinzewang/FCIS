@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fcis.mapper.FileUploadDao">
+    <insert id="importExcel" parameterType="java.util.List">
+        insert into model_worker m,info i, addinfo a,certified_materials ce
+        (
+        m.modelworker_id,m.modelworker_title,m.modelworker_treatment,
+        i.info_name,i.sex,i.nationality,i.born,i.education,i.info_provence,i.political_state,i.organization
+            ,i.job_title,i.get_modelworker_tltle_time,i.info_awadingunit,i.identity_number,i.phone,
+        a.stateof_health,a.stateof_family,a.stateof_job,a.outstanding_dees,a.ismodelworker_title,
+        ce.awarding_unit,ce.awarding_time,ce.recognition_name,ce.symbol,ce.recoginition_unit,ce.recognition_time,
+        m.die_time,m.transfer_destination,m.moderworker_review,m.cancel_reason,m.modelworker_state,
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},#{item.modelWorkerTitle},#{item.modelWorkerTreatment},
+            #{item.modelName},#{item.sex},#{item.nationality},#{item.born},#{item.education},#{item.provence}
+                ,#{item.politicalState},#{item.organization},#{item.jobTitle},#{item.getModelWorkerTitleTime}
+                ,#{item.awardingUnit},#{item.ID},#{item.phone},
+            #{item.stateofHealth},#{item.stateofFamily},#{item.stateofJob},#{item.outstandingDeeds},#{item.modelWorkerTitle},
+            #{item.awardingUnit},#{item.awardingTime},#{item.recognitionFileName},#{item.symbol},#{item.recognitionUnit},#{item.recognitionTime},
+            #{item.dieTime},#{item.transferDes},#{item.reviewModelWorker},#{item.reasonforCancel},#{item.isCertified}
+            )
+        </foreach>
+    </insert>
+</mapper>

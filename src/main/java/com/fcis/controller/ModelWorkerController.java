@@ -14,26 +14,24 @@ public class ModelWorkerController {
     private ModelWorkerService modelWorkerService;
 
     @RequestMapping("/modelWorkerDeclare")
-    public String insertFirst(String modelWorkerTitle, String modelWorkerTreatment) {
+    public void insertFirst(String modelWorkerTitle, String modelWorkerTreatment) {
         modelWorkerService.insertTitleAndTreatment(modelWorkerTitle,modelWorkerTreatment);
-        return "info";
     }
     @RequestMapping("/next1")
-    public String insertSecond(Info info) {
+    public void insertSecond(Info info) {
         modelWorkerService.insertInfo(info);
-        return "addInfo";
     }
     @RequestMapping("/next2")
-    public String insertThird(AddInfo addInfo) {
+    public void insertThird(AddInfo addInfo) {
         modelWorkerService.insertAddInfo(addInfo);
-        return "certified";
     }
-    @RequestMapping("/next3")
+    // 差文件上传处理
+    /*@RequestMapping("/next34")
     public String insertFour(CertifiedMaterials certifiedMaterials) {
         modelWorkerService.insertCertifed(certifiedMaterials);
         return "addCertified";
-    }
-    @RequestMapping("/next4")
+    }*/
+    @RequestMapping("/next3")
     @ResponseBody // 待处理
     public String insertFive(AddCertifiedMaterials addCertifiedMaterials) {
         modelWorkerService.insertAddCertifed(addCertifiedMaterials);

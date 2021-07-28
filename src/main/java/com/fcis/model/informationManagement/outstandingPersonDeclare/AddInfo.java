@@ -8,7 +8,7 @@ public class AddInfo implements Serializable {
     private String stateofFamily; //家庭情况
     private String stateofJob; //就业情况
     private String outstandingDeeds; //主要突出事迹
-    private Boolean modelWorkerTitle = false; //是否已获得称号
+    private byte modelWorkerTitle; //是否已获得称号 0否 1是
 
     @Override
     public String toString() {
@@ -62,11 +62,11 @@ public class AddInfo implements Serializable {
         this.outstandingDeeds = outstandingDeeds;
     }
 
-    public Boolean getModelWorkerTitle() {
+    public byte getModelWorkerTitle() {
         return modelWorkerTitle;
     }
 
-    public void setModelWorkerTitle(Boolean modelWorkerTitle) {
+    public void setModelWorkerTitle(byte modelWorkerTitle) {
         this.modelWorkerTitle = modelWorkerTitle;
     }
 }
