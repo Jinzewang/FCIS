@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,4 +38,36 @@ public class AdvanceCollectiveImpl implements AdvanceCollectiveService {
         else
             return false;
     }
+
+    @Override
+    public List<CollectiveInfo> selectAdvanceCondition(String collectiveProvance, String companyName
+            , String principalName, String principalPhone, int currPage, int pageSize) {
+        List<CollectiveInfo> collectiveInfos = advancedCollectiveDao.selectAdvanceCondition(collectiveProvance, companyName, principalName, principalPhone);
+        int firstIndex = (currPage-1)*pageSize;
+        int endIndex = currPage*pageSize;
+        return collectiveInfos.subList(firstIndex,endIndex);
+    }
+
+    @Override
+    public List<Integer> statisticsCollective() {
+        int nationalAdvance = advancedCollectiveDao.statisticsNationalAdvance().size();//全国先进生产单位数
+        int sichuanAdvance = advancedCollectiveDao.statisticsProvenceAdvance().size();//四川省先进生产单位数
+        int national51 = advancedCollectiveDao.statisticsNationalAdvance51().size();//全国51劳动奖状单位数
+        int sichuan51 = advancedCollectiveDao.statisticsProvenceAdvance51().size();//四川五一劳动奖状单位数
+        int nationalWorkers = advancedCollectiveDao.statisticsNationalWorkers().size();//全国工人先锋号
+        int sichuanWorkers = advancedCollectiveDao.statisticsProvenceWorkers().size();//四川省工人先锋号
+        int cityWorkers = advancedCollectiveDao.statisticsCityWorkers().size();//市工人先锋号
+        int companyWorkers = advancedCollectiveDao.statisticsCompanyWorkers().size();//企业先锋号
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(0,nationalAdvance);
+        list.add(1,sichuanAdvance);
+        list.add(2,national51);
+        list.add(3,sichuan51);
+        list.add(4,nationalWorkers);
+        list.add(5,sichuanWorkers);
+        list.add(6,cityWorkers);
+        list.add(7,companyWorkers);
+        return list;
+    }
+
 }

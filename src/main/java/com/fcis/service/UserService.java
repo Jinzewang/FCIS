@@ -8,7 +8,8 @@ import java.util.List;
 @Service
 public interface UserService {
     // 按条件查询劳模
-    List<User> getAllUser(String username, String otherCondition, int currPage, int pageSize);
+    List<User> getAllUser(String username, String otherCondition,String sex,String nationality,String politicalState
+            , int currPage, int pageSize);
     // 检验用户登录
     User checkLogin(String username,String password);
     // 修改密码

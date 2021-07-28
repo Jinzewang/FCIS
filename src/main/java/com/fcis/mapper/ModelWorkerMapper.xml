@@ -46,4 +46,53 @@
 	<select id="successOrnot" parameterType="int" resultType="Integer">
 		select isDelete from model_worker where modelworker_id = #{id}
 	</select>
+
+
+	<resultMap id="conditionResultMap" type="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker">
+		<id column="modelworker_id" property="id"/>
+		<result column="modelworker_title" property="modelWorkerTitle"/>
+		<result column="modelworker_treatment" property="modelWorkerTreatment"/>
+		<result column="modelworker_state" property="isCertified"/>
+		<association property="modelworker_info_id" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.Info">
+			<id column="info_id" property="id"/>
+			<result column="info_name" property="modelName"/>
+			<result column="sex" property="sex"/>
+			<result column="nationality" property="nationality"/>
+			<result column="education" property="education"/>
+			<result column="political_state" property="politicalState"/>
+			<result column="info_provence" property="provence"/>
+			<result column="job_title" property="jobTitle"/>
+			<result column="phone" property="phone"/>
+		</association>
+	</resultMap>
+<!--	按荣誉称号，待遇等查询劳模-->
+	<select id="selectModelWorkerCondition" resultMap="conditionResultMap">
+		select * from model_worker
+		<where>
+			<if test="modelWorkerTitle!=null">
+				and modelworker_id=#{modelWorkerTitle}
+			</if>
+			<if test="modelWorkerTreatment!=null">
+				and modelworker_treatment=#{modelWorkerTreatment}
+			</if>
+			<if test="isCertified>=0">
+				and modelworker_state=#{isCertified}
+			</if>
+			<if test="dieTime!=null">
+				and die_time=#{dieTime}
+			</if>
+		</where>
+	</select>
+<!--	查询建国来劳模总数-->
+	<select id="selectTotalModelWorker" resultType="Integer">
+		select modelworker_id from model_worker where modelworker_state > 0;
+	</select>
+<!--	查询已死亡劳模数量-->
+	<select id="selectDieModelWorker" resultType="Integer">
+		select modelworker_id from model_worker where modelworker_state = 4;
+	</select>
+<!--	查询退休劳模数-->
+	<select id="selectRetireModel" resultType="Integer">
+		select addinfo_id from addinfo where stateof_job=#{addinfo_id}
+	</select>
 </mapper>

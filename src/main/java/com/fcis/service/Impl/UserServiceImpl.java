@@ -42,8 +42,9 @@ public class UserServiceImpl implements UserService {
      * 查詢先進個人,按分页展示查询结果
      * @return
      */
-    public List<User> getAllUser(String username, String otherCondition, int currPage, int pageSize) {
-        List<User> users = userDao.gerAllUser(username, otherCondition);
+    public List<User> getAllUser(String username, String otherCondition,String sex,String nationality,String politicalState
+            , int currPage, int pageSize) {
+        List<User> users = userDao.gerAllUser(username, otherCondition,sex,nationality,politicalState);
         int firstIndex = (currPage-1)*pageSize;
         int endIndex = currPage*pageSize;
         return users.subList(firstIndex,endIndex);

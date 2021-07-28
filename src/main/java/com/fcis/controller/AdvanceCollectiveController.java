@@ -46,4 +46,32 @@ public class AdvanceCollectiveController {
         boolean deleteAdvance = advanceCollectiveService.deleteAdvance(id);
         return deleteAdvance;
     }
+
+    /**
+     * 按条件查询先进集体
+     * @param collectiveProvance
+     * @param companyName
+     * @param principalName
+     * @param principalPhone
+     * @param currPage
+     * @param pageSize
+     * @return
+     */
+    public List<CollectiveInfo> selectAdvanceCodition(String collectiveProvance, String companyName
+            ,String principalName
+            ,String principalPhone
+            ,int currPage,int pageSize) {
+        List<CollectiveInfo> collectiveInfos = advanceCollectiveService.selectAdvanceCondition(collectiveProvance,companyName,principalName,principalPhone,currPage,pageSize);
+
+        return collectiveInfos;
+    }
+
+    /**
+     * 统计先进集体 按荣誉称号进行二位饼状图分析
+     * @return
+     */
+    @RequestMapping("/statisticsCollective")
+    public List<Integer> statisticsAdvance() {
+        return advanceCollectiveService.statisticsCollective();
+    }
 }

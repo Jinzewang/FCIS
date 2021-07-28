@@ -1,13 +1,13 @@
 package com.fcis.service.Impl;
 
 import com.fcis.mapper.ModelWorkerDao;
-import com.fcis.model.informationManagement.outstandingPersonDeclare.AddCertifiedMaterials;
-import com.fcis.model.informationManagement.outstandingPersonDeclare.AddInfo;
-import com.fcis.model.informationManagement.outstandingPersonDeclare.CertifiedMaterials;
-import com.fcis.model.informationManagement.outstandingPersonDeclare.Info;
+import com.fcis.model.informationManagement.outstandingPersonDeclare.*;
 import com.fcis.service.ModelWorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class ModelWorkerServiceImpl implements ModelWorkerService {
@@ -47,7 +47,31 @@ public class ModelWorkerServiceImpl implements ModelWorkerService {
         int successOrnot = modelWorkerDao.successOrnot(id);
         if (successOrnot == 1)
             return true;
-        else
-            return false;
+        return false;
+    }
+
+    @Override //未上报0，已上报1，已认定2，取消称号3，已死亡4，已调动5
+    public List<ModelWorker> selectModelWorkerCondition(String modelWorkerTitle
+            , String modelWorkerTreatment, byte isCertified, Date dieTime
+            , int currPage, int pageSize) {
+        List<ModelWorker> modelWorkers = modelWorkerDao.selectModelWorkerCondition(modelWorkerTitle, modelWorkerTreatment, isCertified, dieTime);
+        int firstIndex = (currPage-1)*pageSize;
+        int endIndex = currPage*pageSize;
+        return modelWorkers.subList(firstIndex,endIndex);
+    }
+
+    /**
+     * 先进个人统计
+     * @return
+     */
+    @Override
+    public int selectTotalModelWorker(String stateofJob) {
+        List<Integer> totalModelWorkers= modelWorkerDao.selectTotalModelWorker();
+        List<Integer> dieModelWorker = modelWorkerDao.selectDieModelWorker();//死亡劳模数
+        int alive = totalModelWorkers.size()-dieModelWorker.size();//健在劳模数
+        List<Integer> retireModel = modelWorkerDao.selectRetireModel(stateofJob);//退休劳模数
+        int onTheJob = totalModelWorkers.size()-retireModel.size();//在职劳模数
+        // 还差企事业单位领导数，农村劳模数等 然后把这些封装成 list 返回
+        return -1;
     }
 }

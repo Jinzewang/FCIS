@@ -9,12 +9,18 @@ import java.util.List;
 public interface UserMapper {
 
     /**
-     * 按条件查询分页展示
-     * @param username 据用户名查询
+     * 按条件查询分页展示 按照了基本信息查询
+     * @param username 据姓名查询
+     * @param sex 性别查询
+     * @param nationality 按民族查询
      * @param otherCondition 据其他条件查询
+     * @param politicalState 按照社会属性查询 政治状态
      * @return
      */
-    List<User> gerAllUser(@Param("username") String username, @Param("otherCondition") String otherCondition);
+    List<User> gerAllUser(@Param("username") String username
+            ,@Param("politicalState") String politicalState
+            , @Param("otherCondition") String otherCondition
+            , @Param("sex")String sex, @Param("nationality") String nationality);
     /**
      * 查找用户名和密码
      * @param username 登录用户名

@@ -18,18 +18,25 @@
 		</association>
 	</resultMap>
 
-	<!-- 按条件（姓名，性别，民族，待遇或称号等）查询劳模分页展示	-->
-	<!--<select id="gerAllUser" parameterType="" resultMap="modelWorkerResultMap">
-		select * from model_worker
-		<where>
-			<if test="username != null">
-				and username = #{username} &lt;!&ndash; 如何定位到姓名&ndash;&gt;
-			</if>
-			<if test="otherCondition != null">
-				and other = #{otherCondition} &lt;!&ndash; 如何选择其他条件&ndash;&gt;
-			</if>
-		</where>
-	</select>-->
+	<!-- 按条件（姓名，性别，民族，待遇或称号等）查询劳模分页展示	按照了基本信息查询-->
+	<select id="gerAllUser" resultMap="modelWorkerResultMap">
+		select * from model_worker where modelworker_info_id= (select modelworker_info_id from info
+			<where>
+				<if test="username!=null">
+					and info_name = like concat('%',#{username},'%')
+				</if>
+				<if test="sex!=null">
+					and sex = #{sex}
+				</if>
+				<if test="nationality!=null">
+					and nationality = #{nationality}
+				</if>
+				<if test="politicalState!=null">
+					and political_state = #{politicalState}
+				</if>
+			</where>
+		)
+	</select>
     <!-- 目的：为DAO接口方法提供sql语句配置 -->
     <!-- 查询用户和密码进行登录 -->
     <select id="findByUsername" resultType="com.fcis.model.User" parameterType="String">

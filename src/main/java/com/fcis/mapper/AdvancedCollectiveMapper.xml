@@ -13,18 +13,62 @@
 
 <!--    按称号查询先进集体，返回所有集体并分页展示-->
     <sql id="advanceBaseSql">
-        advanced_id,isDeleteAdvance,advanced_title,advanced_provance,company_name,principal_name,principal_phone
+        advanced_id,isDeleteAdvance,advanced_title,advanced_provance,company_name,principal_name,principal_phone,addvance_outstanding
     </sql>
     <select id="selectAdvanceCollective" resultType="com.fcis.model.informationManagement.advancedCollective.CollectiveInfo">
         select <include refid="advanceBaseSql"/> from advanced_collective
         where advanced_title = #{collectiveTitle}
     </select>
 
+<!--    按基本信息条件查询先进集体-->
+    <select id="selectAdvanceCondition" resultType="com.fcis.model.informationManagement.advancedCollective.CollectiveInfo">
+        select <include refid="advanceBaseSql"/> from advanced_collective
+        <where>
+            <if test="collectiveProvance!=null">
+                and advanced_provance=#{collectiveProvance}
+            </if>
+            <if test="companyName!=null">
+                and company_name=#{companyName}
+            </if>
+            <if test="principalName!=null">
+                and  principal_name=like concat('%',#{principalName},'%')
+            </if>
+            <if test="principalPhone!=null">
+                and  principal_phone=#{principalPhone}
+            </if>
+        </where>
+    </select>
 <!--    删除先进集体-->
     <update id="deleteAdvance" parameterType="Integer">
         update advanced_collective set isDeleteAdvance=1 where advanced_id=#{id}
     </update>
     <select id="deleteSuccess" parameterType="Integer" resultType="Integer">
         select isDeleteAdvance from advanced_collective where advanced_id=#{id}
+    </select>
+
+<!--    先进集体统计-->
+    <select id="statisticsNationalAdvance" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '全国先进%'
+    </select>
+    <select id="statisticsProvenceAdvance" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '省先进%'
+    </select>
+    <select id="statisticsNationalAdvance51" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '全国五一%'
+    </select>
+    <select id="statisticsProvenceAdvance51" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '四川省五一%'
+    </select>
+    <select id="statisticsNationalWorkers" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '全国工人%'
+    </select>
+    <select id="statisticsProvenceWorkers" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '四川省工人%'
+    </select>
+    <select id="statisticsCityWorkers" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '市工人%'
+    </select>
+    <select id="statisticsCompanyWorkers" resultType="Integer">
+        select advanced_id from advanced_collective where advanced_title like '企业工人%'
     </select>
 </mapper>

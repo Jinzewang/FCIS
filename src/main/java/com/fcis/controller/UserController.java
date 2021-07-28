@@ -20,9 +20,9 @@ public class UserController {
 
     // 按条件查询劳模
     @RequestMapping("/selectUsers/{currPage}/{pageSize}")
-    public List<User> getAllUsers(String username, String otherCondition
+    public List<User> getAllUsers(String username, String otherCondition,String sex,String nationality,String politicalState
             , @PathVariable("currPage") int currPage, @PathVariable("pageSize") int pageSize) {
-        return userService.getAllUser(username, otherCondition, currPage, pageSize);
+        return userService.getAllUser(username, otherCondition,sex,nationality,politicalState, currPage, pageSize);
     }
 
     //正常访问login页面
