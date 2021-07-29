@@ -137,4 +137,7 @@
 	<select id="modelWorkerDetails" resultMap="detailsResultMap">
 		select * from model_worker where modelworker_id=#{id}
 	</select>
+	<select id="findAllModelWorkers" resultMap="detailsResultMap">
+		select * from model_worker
+	</select>
 </mapper>

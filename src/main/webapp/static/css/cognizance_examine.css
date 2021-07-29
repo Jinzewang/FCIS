@@ -207,6 +207,7 @@ a {
     font-size: 20px;
     margin-left: 90px;
     margin-top: 20px;
+    float: left;
 }
 
 .ta .cognizance input {
@@ -237,22 +238,13 @@ a {
     margin: 75px 0 30px 165px;
 }
 
-.ta #step1 .st2 {
+.ta #step1 .st1, st2 {
+    margin-top: 20px;
     width: 300px;
     margin-left: 70px;
 }
 
-.ta #step1 .st1 {
-    margin-left: 75px;
-}
-
-.ta #step1 .st1, st2 {
-    margin-top: 20px;
-    width: 300px;
-}
-
 .ta .step2 {
-    margin-top: 80px;
     font-size: 20px;
-    margin-left: 237px;
+    margin-left: 255px;
 }

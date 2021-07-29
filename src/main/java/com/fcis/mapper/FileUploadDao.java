@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface FileUploadDao {
     int importExcel(List<ModelWorker> modelWorkerList);
+
+    List<ModelWorker> findAllModelWorkers();
 }

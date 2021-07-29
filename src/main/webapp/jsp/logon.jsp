@@ -10,18 +10,22 @@
 <html>
 <head>
     <title>登录</title>
-    <link rel="stylesheet" href="../static/css/logon.css">
+    <link rel="stylesheet" href="/static/css/logon.css">
 </head>
 <body>
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--头部制作--%>
 <div class="header">
-    <img src="../static/img/img.jpg">
+    <img src="/static/img/img.jpg" class="himg">
     <div class="head">
         <div class="headr"><p>总工会先进个人与先进集体</p><br>
             <p class="p1">综合信息管理系统</p>
         </div>
-        <div class="hea">ZGH</div>
+        <img src="/static/img/logo.jpg" class="rimg">
+        <div class="yin">
+            <p>Advanced individual and collective integrated information management</p><br>
+            <p class="rbimg"> system of the Federation of trade unions</p>
+        </div>
     </div>
 </div>
 <%--登录制作--%>

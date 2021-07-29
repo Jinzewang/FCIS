@@ -58,4 +58,10 @@ public interface ModelWorkerDao {
      * @return
      */
     List<ModelWorker> modelWorkerDetails(Integer id);
+
+    /**
+     * 在Excel导出中导出劳模的所有信息
+     * @return
+     */
+    List<ModelWorker> findAllModelWorkers();
 }

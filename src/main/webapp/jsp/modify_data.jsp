@@ -4,6 +4,7 @@
   Date: 2021/7/27
   Time: 15:52
   To change this template use File | Settings | File Templates.
+  传递 跳转到个人中心
 --%>
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

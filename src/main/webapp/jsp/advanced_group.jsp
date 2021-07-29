@@ -4,6 +4,7 @@
   Date: 2021/7/22
   Time: 21:28
   To change this template use File | Settings | File Templates.
+  传递  接收
 --%>
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -16,7 +17,7 @@
         .apply {
             display: none;
         }
-        
+
         .modify {
             display: none;
         }
@@ -130,90 +131,94 @@
     </table>
     <%--申请表制作--%>
     <div class="apply">
-        <div class="q">先进集体信息申报</div>
-        <%--        第一个小页面--%>
-        <div id="step1" style="margin-bottom: 30px">
-            <div class="st1"><span>&nbsp;选择劳模称号:</span>
-                <select name="modelWorkerTitle">
-                    <option value="nationalModelWorker">全国劳模</option>
-                    <option value="SichuanModelWorker">四川省劳模</option>
-                    <option value="national51ModelWorker">全国五一劳动奖章</option>
-                    <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
-                    <option value="other">其他劳动荣誉称号</option>
-                </select></div>
-            <div class="st2"><span>&nbsp;选择劳模待遇:</span>
-                <select name="modelWorkerTreatment">
-                    <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
-                    <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
-                    <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
-                    <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
-                </select>
+        <form action="/declareAdvanceCollective">
+            <div class="q">先进集体信息申报</div>
+            <%--        第一个小页面--%>
+            <div id="step1" style="margin-bottom: 30px">
+                <div class="st1"><span>&nbsp;选择劳模称号:</span>
+                    <select name="modelWorkerTitle">
+                        <option value="nationalModelWorker">全国劳模</option>
+                        <option value="SichuanModelWorker">四川省劳模</option>
+                        <option value="national51ModelWorker">全国五一劳动奖章</option>
+                        <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
+                        <option value="other">其他劳动荣誉称号</option>
+                    </select></div>
+                <div class="st2"><span>&nbsp;选择劳模待遇:</span>
+                    <select name="modelWorkerTreatment">
+                        <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
+                        <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
+                        <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
+                        <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <%--        <br>--%>
-        <hr>
-        <%--        第二个小页面--%>
-        <div id="step2">
-            <div style="margin-top: 30px">
-                <span>所属市州产业:</span><input type="text">
-                <span>单位名称:</span><input type="text">
+            <%--        <br>--%>
+            <hr>
+            <%--        第二个小页面--%>
+            <div id="step2">
+                <div style="margin-top: 30px">
+                    <span>所属市州产业:</span><input type="text">
+                    <span>单位名称:</span><input type="text">
+                </div>
+                <div>
+                    <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
+                    <span>联系方式:</span><input type="text"><br>
+                </div>
+                <div>
+                    <span>主要突出事迹:</span><input type="text">
+                </div>
             </div>
-            <div>
-                <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
-                <span>联系方式:</span><input type="text"><br>
+            <div class="step3">
+                <input type="submit" class="cc1" onclick="submit()" value="提交">
+                <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
             </div>
-            <div>
-                <span>主要突出事迹:</span><input type="text">
-            </div>
-        </div>
-        <div class="step3">
-            <input type="button" class="cc1" onclick="submit()" value="提交">
-            <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
-        </div>
+        </form>
     </div>
     <%--修改制作--%>
-    <div class="modify">
-        <div class="q">先进集体信息修改</div>
-        <%--        第一个小页面--%>
-        <div id="step1" style="margin-bottom: 30px">
-            <div class="st1"><span>&nbsp;选择劳模称号:</span>
-                <select name="modelWorkerTitle">
-                    <option value="nationalModelWorker">全国劳模</option>
-                    <option value="SichuanModelWorker">四川省劳模</option>
-                    <option value="national51ModelWorker">全国五一劳动奖章</option>
-                    <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
-                    <option value="other">其他劳动荣誉称号</option>
-                </select></div>
-            <div class="st2"><span>&nbsp;选择劳模待遇:</span>
-                <select name="modelWorkerTreatment">
-                    <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
-                    <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
-                    <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
-                    <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
-                </select>
+    <form action="/declareAdvanceCollective">
+        <div class="modify">
+            <div class="q">先进集体信息修改</div>
+            <%--        第一个小页面--%>
+            <div id="step1" style="margin-bottom: 30px">
+                <div class="st1"><span>&nbsp;选择劳模称号:</span>
+                    <select name="modelWorkerTitle">
+                        <option value="nationalModelWorker">全国劳模</option>
+                        <option value="SichuanModelWorker">四川省劳模</option>
+                        <option value="national51ModelWorker">全国五一劳动奖章</option>
+                        <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
+                        <option value="other">其他劳动荣誉称号</option>
+                    </select></div>
+                <div class="st2"><span>&nbsp;选择劳模待遇:</span>
+                    <select name="modelWorkerTreatment">
+                        <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
+                        <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
+                        <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
+                        <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
+                    </select>
+                </div>
+            </div>
+            <%--        <br>--%>
+            <hr>
+            <%--        第二个小页面--%>
+            <div id="step2">
+                <div style="margin-top: 30px">
+                    <span>所属市州产业:</span><input type="text">
+                    <span>单位名称:</span><input type="text">
+                </div>
+                <div>
+                    <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
+                    <span>联系方式:</span><input type="text"><br>
+                </div>
+                <div>
+                    <span>主要突出事迹:</span><input type="text">
+                </div>
+            </div>
+            <div class="step3">
+                <input type="button" class="cc1" onclick="submit()" value="提交">
+                <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
             </div>
         </div>
-        <%--        <br>--%>
-        <hr>
-        <%--        第二个小页面--%>
-        <div id="step2">
-            <div style="margin-top: 30px">
-                <span>所属市州产业:</span><input type="text">
-                <span>单位名称:</span><input type="text">
-            </div>
-            <div>
-                <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
-                <span>联系方式:</span><input type="text"><br>
-            </div>
-            <div>
-                <span>主要突出事迹:</span><input type="text">
-            </div>
-        </div>
-        <div class="step3">
-            <input type="button" class="cc1" onclick="submit()" value="提交">
-            <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
-        </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>
