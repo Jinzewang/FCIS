@@ -45,4 +45,17 @@ public interface UserMapper {
      * @return
      */
     void updatePassWord(@Param("oldPassWord") String oldPassWord, @Param("newPassWord") String newPassWord);
+
+    /**
+     * 系统管理模块之新增用户
+     * @param user 用户
+     */
+    void insertUserAdmin(User user);
+
+    /**
+     * 系统用户管理之查询
+     * @param condition 查询条件
+     * @return 返回列表
+     */
+    List<User> selectUserAdmin(@Param("condition") String condition);
 }

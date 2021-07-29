@@ -13,7 +13,6 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userDao;
-
     /*
      * 检验用户登录业务
      *
@@ -26,7 +25,6 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-
     /**
      *  修改用户密码
      */
@@ -38,7 +36,6 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-
     /**
      * 查詢先進個人,按分页展示查询结果
      * @return
@@ -49,5 +46,29 @@ public class UserServiceImpl implements UserService {
         int firstIndex = (currPage-1)*pageSize;
         int endIndex = currPage*pageSize;
         return users.subList(firstIndex,endIndex);
+    }
+
+    /**
+     * 系统用户管理之新增用户
+     * @param user 用户
+     * @return
+     */
+    @Override
+    public boolean adminInsertUser(User user, String passwd) {
+        userDao.insertUserAdmin(user);
+        User username = userDao.findByUsername(user.getUsername());
+        if (username != null && user.getPassword().equals(passwd))
+            return true;
+        return false;
+    }
+
+    /**
+     * 系统用户管理之查询
+     * @param condition 查询条件
+     * @return 返回列表
+     */
+    @Override
+    public List<User> selectUserAdmin(String condition) {
+        return userDao.selectUserAdmin(condition);
     }
 }

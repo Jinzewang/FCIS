@@ -78,4 +78,22 @@ public class UserController {
         return "logon";
     }
 
+
+    // 系统管理模块
+
+    /**
+     * 系统管理员新增用户
+     * @param user 用户
+     * @return 返回是否插入成功
+     */
+    @RequestMapping("/insertUserAdmin")
+    public boolean adminInsertUser(User user) {
+        boolean insertUserSuccess = userService.adminInsertUser(user, user.getPassword());
+        return insertUserSuccess;
+    }
+
+    @RequestMapping("/selectUserAdmin")
+    public List<User> selectUserAdmin(String condition) {
+        return userService.selectUserAdmin(condition);
+    }
 }

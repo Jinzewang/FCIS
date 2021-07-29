@@ -37,6 +37,7 @@
 			</where>
 		)
 	</select>
+
     <!-- 目的：为DAO接口方法提供sql语句配置 -->
     <!-- 查询用户和密码进行登录 -->
     <select id="findByUsername" resultType="com.fcis.model.User" parameterType="String">
@@ -56,5 +57,27 @@
       	        (user_name,user_password)
      	    values
      	        (#{username},#{password})
-     	</insert>
+    </insert>
+
+<!--	系统之用户管理-->
+	<resultMap id="userResultMap" type="com.fcis.model.User">
+		<id column="user_id" property="id"/>
+		<result column="user_account" property="account"/>
+		<result column="user_name" property="username"/>
+		<result column="user_sex" property="user_sex"/>
+		<result column="identify_card" property="identifyCard"/>
+		<result column="user_phone" property="user_phone"/>
+		<result column="email" property="email"/>
+		<result column="user_union" property="union"/>
+	</resultMap>
+	<insert id="insertUserAdmin" parameterType="com.fcis.model.User">
+		insert into user
+		(user_account,user_password,user_name,user_sex,identify_card,user_phone,email,user_union)
+		values
+		(#{account},#{password},#{username},#{user_sex},#{identifyCard},#{user_phone},#{email},#{union})
+	</insert>
+<!--	用户查询-->
+	<select id="selectUserAdmin" parameterType="String" resultMap="userResultMap">
+		select * from user where user_name=#{condition}
+	</select>
 </mapper>

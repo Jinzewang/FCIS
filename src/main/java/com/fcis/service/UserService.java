@@ -15,4 +15,13 @@ public interface UserService {
     User checkLogin(String username,String password);
     // 修改密码
     User updatePasswd(String username, String oldPassWord, String newPassWord);
+
+    /**
+     * 系统管理模块之新增用户
+     * @param user 用户
+     * @return
+     */
+    boolean adminInsertUser(User user, String passwd);
+
+    List<User> selectUserAdmin(String condition);
 }
