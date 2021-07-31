@@ -36,6 +36,7 @@ a {
 
 .body {
     height: 100%;
+    width: 100%;
 }
 
 /*头部制作*/
@@ -231,23 +232,15 @@ a {
     margin-left: 0;
 }
 
-.ta .st2 span {
-    margin-left: 0;
-}
 
 /*申报*/
 /*第一个小页面的制作*/
 
-.ta #step1 .st2 {
-    width: 300px;
-    display: inline-block;
+.ta #step1 .st1 {
+    margin-left: 240px;
 }
 
 .ta #step1 .st1 {
-    margin-left: 75px;
-}
-
-.ta #step1 .st1, st2 {
     margin-top: 20px;
     width: 300px;
     display: inline-block;
@@ -321,83 +314,3 @@ a {
     margin-left: 0;
 }
 
-.ta .modify .st2 span {
-    margin-left: 0;
-}
-
-/*第一个小页面的制作*/
-/*.ta #step5 .st1 {*/
-/*    margin-top: 80px;*/
-/*}*/
-
-/*.ta #step5 .st2 {*/
-/*    margin-left: 100px;*/
-/*}*/
-
-/*.ta #step5 .st1, st2 {*/
-/*    margin-top: 20px;*/
-/*    margin-left: 100px;*/
-/*}*/
-
-/*.ta #step5 .cc1, .cc2 {*/
-/*    float: left;*/
-/*    font-size: 20px;*/
-/*    width: 140px;*/
-/*    height: 30px;*/
-/*    margin-left: 240px;*/
-/*    margin-top: 50px;*/
-/*}*/
-
-/*.ta #step5 .cc2 {*/
-/*    margin-left: 30px;*/
-/*    margin-top: 50px;*/
-/*}*/
-
-/*!*第二个小页面的制作*!*/
-/*.ta #step6 .cc1, .cc2, .cc3 {*/
-/*    float: left;*/
-/*    font-size: 20px;*/
-/*    width: 140px;*/
-/*    height: 30px;*/
-/*    margin-left: 30px;*/
-/*    margin-top: 20px;*/
-/*}*/
-
-/*.ta #step6 .cc1 {*/
-/*    margin-left: 188px;*/
-/*}*/
-/*第一个小页面的制作*/
-
-/*.ta #step1 .st2 {*/
-/*    width: 300px;*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.ta #step1 .st1 {*/
-/*    margin-left: 75px;*/
-/*}*/
-
-/*.ta #step1 .st1, st2 {*/
-/*    margin-top: 20px;*/
-/*    width: 300px;*/
-/*    display: inline-block;*/
-/*}*/
-
-/*!*第二个小页面的制作*!*/
-/*.ta #step2 .cc1, .cc2 {*/
-/*    float: left;*/
-/*    font-size: 20px;*/
-/*    width: 140px;*/
-/*    height: 30px;*/
-/*    margin-left: 30px;*/
-/*    margin-top: 20px;*/
-/*}*/
-
-/*.ta #step2 .cc1 {*/
-/*    margin-left: 188px;*/
-/*}*/
-
-/*.ta .step3 {*/
-/*    margin-top: 30px;*/
-/*    font-size: 20px;*/
-/*}*/

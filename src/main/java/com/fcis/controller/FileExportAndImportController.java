@@ -21,7 +21,6 @@ import java.util.List;
 @Controller
 public class FileExportAndImportController {
 
-    @Qualifier("fileExImportService")
     @Autowired
     private FileExImportService fileExImportService;
 

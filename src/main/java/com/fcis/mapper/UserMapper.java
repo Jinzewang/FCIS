@@ -29,7 +29,7 @@ public interface UserMapper {
      */
     User findByUsername(String username);
 
-
+    List<User> findAllUser();
     /**
      * 注册用户和密码
      * @param username 用户名
@@ -54,8 +54,21 @@ public interface UserMapper {
 
     /**
      * 系统用户管理之查询
-     * @param condition 查询条件
+     * @param condition 查询条件（按姓名）
      * @return 返回列表
      */
     List<User> selectUserAdmin(@Param("condition") String condition);
+
+    /**
+     * 系统用户管理之删除
+     * @param id 删除用户id
+     */
+    void deleteUserAdmin(Integer id);
+    int successDeleteUserAdmin(Integer id);
+
+    /**
+     * 系统管理之分配用户权限
+     * @param id 分配对象的id
+     */
+    void userAssignPermission(@Param("id") Integer id,@Param("permission") int permission);
 }

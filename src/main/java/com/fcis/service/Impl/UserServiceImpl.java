@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     public User checkLogin(String username, String password) {
 
         User user = userDao.findByUsername(username);
-        if(user != null && user.getPassword().equals(password)){
+        if(user.getUsername() != null && user.getPassword().equals(password)){
             return user;
         }
         return null;
@@ -70,5 +70,36 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> selectUserAdmin(String condition) {
         return userDao.selectUserAdmin(condition);
+    }
+
+    /**
+     * 逻辑删除用户
+     * @param id 要删除用户所对应id
+     * @return 返回是否成功
+     */
+    @Override
+    public boolean deleteUserAdmin(Integer id) {
+        userDao.deleteUserAdmin(id);
+        int successDeleteUserAdmin = userDao.successDeleteUserAdmin(id);
+        if (successDeleteUserAdmin == 1)
+            return true;
+        return false;
+    }
+
+    /**
+     * 系统管理之用户权限分配
+     * @param id 要分配用户的id
+     * @param permission 要给与其分配的权限
+     */
+    @Override
+    public void userAssignPermission(Integer id, String permission) {
+        int permissionTemp = 6;
+        if (permission.equals("管理员"))
+            permissionTemp = 4;
+        else if (permission.equals("审核员"))
+            permissionTemp = 5;
+        /*else if (permission.equals("申报员"))
+            permissionTemp = 6;*/
+        userDao.userAssignPermission(id,permissionTemp);
     }
 }

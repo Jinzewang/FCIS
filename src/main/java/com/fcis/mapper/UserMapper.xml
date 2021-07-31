@@ -38,12 +38,18 @@
 		)
 	</select>
 
+	<select id="findAllUser" resultType="com.fcis.model.User">
+		select * from user;
+	</select>
     <!-- 目的：为DAO接口方法提供sql语句配置 -->
     <!-- 查询用户和密码进行登录 -->
-    <select id="findByUsername" resultType="com.fcis.model.User" parameterType="String">
-
+	<resultMap id="checkLogonResultMap" type="com.fcis.model.User">
+		<id column="user_id" property="id"/>
+		<result column="user_name" property="username"/>
+		<result column="user_password" property="password"/>
+	</resultMap>
+    <select id="findByUsername" resultMap="checkLogonResultMap">
 		select * from user where user_name = #{username}
-
 	</select>
 <!--	修改密码-->
 	<update id="updatePassWord">
@@ -78,6 +84,28 @@
 	</insert>
 <!--	用户查询-->
 	<select id="selectUserAdmin" parameterType="String" resultMap="userResultMap">
-		select * from user where user_name=#{condition}
+		select * from user where user_name=#{condition} and user_isdelete!=1
 	</select>
+<!--	用户删除-->
+	<update id="deleteUserAdmin" parameterType="Integer">
+		update user set user_isdelete=1 where user_id=#{id}
+	</update>
+	<select id="successDeleteUserAdmin" parameterType="Integer">
+		select user_isdelete from user where user_id=#{id}
+	</select>
+
+<!--	系统管理之分配权限-->
+	<update id="userAssignPermission">
+		update user_role
+		<if test="permission=4">
+			set role_id=4
+		</if>
+		<if test="permission=5">
+			set role_id=5
+		</if>
+		<if test="permission=6">
+			set role_id=6
+		</if>
+		where user_Id=#{id}
+	</update>
 </mapper>

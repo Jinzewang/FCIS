@@ -36,6 +36,7 @@ a {
 
 .body {
     height: 100%;
+    width: 100%;
 }
 
 /*头部制作*/
@@ -156,7 +157,7 @@ a {
 /*表格设计*/
 .ta {
     float: left;
-    margin-left: 3%;
+    margin-left: 10%;
     position: relative;
 }
 
@@ -346,6 +347,22 @@ a {
     font-size: 20px;
 }
 
+.ta #step4 .one {
+    margin-left: 350px;
+}
+
+.ta #step4 .two {
+    margin-left: 200px;
+}
+
+.ta #step4 .three {
+    margin-left: 240px;
+}
+
+.ta #step4 .four {
+    margin-left: 220px;
+}
+
 .ta #step4 .te1 {
     width: 200px;
 }
@@ -360,7 +377,7 @@ a {
 }
 
 .ta #step4 .cc1 {
-    margin-left: 188px;
+    margin-left: 150px;
 }
 
 /*修改*/
@@ -437,6 +454,22 @@ a {
 
 .ta #step8 {
     font-size: 20px;
+}
+
+.ta #step8 .one {
+    margin-left: 350px;
+}
+
+.ta #step8 .two {
+    margin-left: 200px;
+}
+
+.ta #step8 .three {
+    margin-left: 240px;
+}
+
+.ta #step8 .four {
+    margin-left: 220px;
 }
 
 .ta #step8 .te1 {

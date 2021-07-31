@@ -10,6 +10,7 @@ public class User {
     private String user_phone; //联系电话
     private String email; //邮箱
     private String union; //所属工会
+    private byte user_isdelete; //用户是否被删除
 
     @Override
     public String toString() {
@@ -96,5 +97,13 @@ public class User {
 
     public void setUnion(String union) {
         this.union = union;
+    }
+
+    public byte getUser_isdelete() {
+        return user_isdelete;
+    }
+
+    public void setUser_isdelete(byte user_isdelete) {
+        this.user_isdelete = user_isdelete;
     }
 }

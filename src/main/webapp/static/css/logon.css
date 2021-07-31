@@ -35,6 +35,7 @@ a {
 
 .body {
     height: 100%;
+    width: 100%;
 }
 
 /*头部制作*/
@@ -43,24 +44,27 @@ a {
     background-color: #FFF7F8;
 }
 
+.header .head {
+    float: left;
+}
+
 .header .himg {
     height: 222px;
     float: left;
 }
 
 .header .rimg {
-    float: right;
-    margin-top: 10px;
+    margin-top: -116px;
+    margin-left: 375px;
     height: 130px
 }
 
 .header .head .headr {
     color: #CC000F;
     font-family: "华文行楷";
-    float: right;
     font-size: 45px;
     margin-top: 30px;
-    margin-right: 50px;
+    margin-left: 500px;
     font-weight: 800;
 }
 
@@ -72,10 +76,8 @@ a {
 .header .head .yin {
     color: #CC000F;
     font-family: "华文行楷";
-    float: right;
     font-size: 30px;
-    margin-right: 20px;
-    margin-top: -10px;
+    margin-right: 400px;
     font-weight: 800;
 }
 

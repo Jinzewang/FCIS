@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>密码重置</title>
-    <link rel="stylesheet" href="/static/css/password_reset.css">
+    <link rel="stylesheet" href="../static/css/password_reset.css">
     <style>
 
         .tips {
@@ -33,12 +33,12 @@
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--头部制作--%>
 <div class="header">
-    <img src="/static/img/img.jpg" class="himg">
+    <img src="../static/img/img.jpg" class="himg">
     <div class="head">
         <div class="headr"><p>总工会先进个人与先进集体</p><br>
             <p class="p1">综合信息管理系统</p>
         </div>
-        <img src="/static/img/logo.jpg" class="rimg">
+        <img src="../static/img/logo.jpg" class="rimg">
         <div class="yin">
             <p>Advanced individual and collective integrated information management</p><br>
             <p class="rbimg"> system of the Federation of trade unions</p>
@@ -47,11 +47,11 @@
 </div>
 <%--密码重置制作--%>
 <h2>密码重置</h2>
-<form action="/updatePasswd">
+<form action="/updatePasswd" method="post">
     <div class="passw">
         <div class="pass">
-            <span>输入新密码:</span><input type="password" class="inputd">
-            <span>确认新密码:</span><input type="password" class="isok">
+            <span>输入新密码:</span><input name="newPassWord" type="password" class="inputd">
+            <span>确认新密码:</span><input name="newPassWord1" type="password" class="isok">
         </div>
         <input type="button" class="confirm" onclick="judge()" value="确认">
         <input type="button" class="cancel" onclick="window.location.href='logon.jsp'" value="取消">
@@ -59,7 +59,7 @@
         <%--    提示--%>
         <div class="tips" style="margin-top: -140px; margin-left: 231px;">
             <span>密码重置成功，请重新登陆</span><br>
-            <input type="submit" onclick="changeVisibilityh()" value="确认">
+            <input type="submit" onclick="changeVisibilityh();window.location.href='logon.jsp'" value="确认">
         </div>
     </div>
 </form>

@@ -224,12 +224,12 @@ a {
     width: 140px;
 }
 
-.ta .st1 span {
+.ta #step1 .st1 span {
     margin-left: 0;
 }
 
-.ta .st2 span {
-    margin-left: 0;
+.ta #step1 .st2 span {
+    margin-left: 70px;
 }
 
 /*…Í±®*/
@@ -247,4 +247,16 @@ a {
 .ta .step2 {
     font-size: 20px;
     margin-left: 255px;
+}
+
+.ta #step1 .st1 input {
+    width: 193px;
+    border: none;
+    border-bottom: 0.5px solid;
+}
+
+.ta #step1 .st2 input {
+    width: 193px;
+    border: none;
+    border-bottom: 0.5px solid;
 }

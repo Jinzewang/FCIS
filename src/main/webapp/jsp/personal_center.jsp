@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker" %>
+<%@ page import="com.fcis.model.User" %><%--
   Created by IntelliJ IDEA.
   User: liu
   Date: 2021/7/23
@@ -6,18 +8,24 @@
   To change this template use File | Settings | File Templates.
   不传递  只接受
 --%>
+<%
+    //接收两个类数据
+    ModelWorker mo = (ModelWorker) session.getAttribute("allUser");
+
+%>
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>个人中心</title>
-    <link rel="stylesheet" href="/static/css/personal_center.css">
+    <link rel="stylesheet" href="../static/css/personal_center.css">
 </head>
 <body>
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <img src="/static/img/logo.jpg">
+    <img src="../static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>
@@ -46,16 +54,16 @@
 <div class="mainb">
     <div class="mleft">
         <img src="#">
-        <span>姓名:</span><input type="text" readonly="readonly" style="margin-right: 150px;margin-top: 50px" value="">
-        <span>民族:</span><input type="text" readonly="readonly" value=""><br>
-        <span>工号:</span><input type="text" readonly="readonly" style="margin-right: 150px" value="">
-        <span>部门:</span><input type="text" readonly="readonly" value=""><br>
-        <span>性别:</span><input type="text" readonly="readonly" style="margin-right: 150px" value="">
-        <span>职位:</span><input type="text" readonly="readonly" value=""><br>
+        <span>姓名:</span><input type="text" readonly="readonly" style="margin-right: 150px;margin-top: 50px"
+                               value="<%=mo.getInfo().getModelName()%>>">
+        <span>民族:</span><input type="text" readonly="readonly" value="<%=mo.getInfo().getNationality()%>"><br>
+        <span>性别:</span><input type="text" readonly="readonly" style="margin-right: 150px"
+                               value="<%=mo.getInfo().getSex()%>">
+        <span>职位:</span><input type="text" readonly="readonly" value="<%=mo.getInfo().getJobTitle()%>"><br>
         <span style="margin-left: 150px">电话:</span><input type="text" readonly="readonly" style="margin-right: 150px"
-                                                          value="">
-        <span>地域:</span><input type="text" readonly="readonly" value=""><br>
-        <span style="margin-left: 150px">电子邮箱:</span><input type="text" readonly="readonly" value="">
+                                                          value="<%=mo.getInfo().getPhone()%>">
+        <span>地域:</span><input type="text" readonly="readonly" value="<%=mo.getInfo().getProvence()%>"><br>
+        <span style="margin-left: 150px">电子邮箱:</span><input type="text" readonly="readonly" value="0">
     </div>
     <div class="mright">
         <span class="mr1">所得荣誉:</span><textarea style="float: left" cols="25" rows="5" readonly="readonly"></textarea>

@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>导入导出</title>
-    <link rel="stylesheet" href="/static/css/import_export.css">
+    <link rel="stylesheet" href="../static/css/import_export.css">
     <style>
         .import {
             display: none;
@@ -33,7 +33,7 @@
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <img src="/static/img/logo.jpg">
+    <img src="../static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>
@@ -55,7 +55,7 @@
 </div>
 <%--表格上方制作--%>
 <div class="formt">
-    <div class="import_export"> 导入导出</div>
+    <div class="import_export">数据导入导出</div>
     <div class="declare" onclick="changeVisibilityv()">申报</div>
     <div class="query"><input type="button" value="查询"></div>
     <input type="text">
@@ -70,7 +70,6 @@
     <table border="1" cellspacing="0" cellpadding="0" border-collapse="collapse">
         <tr>
             <th>序号</th>
-            <th>工号</th>
             <th>姓名</th>
             <th>申报类型</th>
             <th>申报时间</th>
@@ -81,7 +80,6 @@
         </tr>
         <% for (int i = 0; i < 9; i++) {%>
         <tr>
-            <td><input type="text"></td>
             <td><input type="text"></td>
             <td><input type="text"></td>
             <td><input type="text"></td>

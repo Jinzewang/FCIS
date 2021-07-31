@@ -11,13 +11,13 @@
 <html>
 <head>
     <title>导入导出</title>
-    <link rel="stylesheet" href="/static/css/statistics.css">
+    <link rel="stylesheet" href="../static/css/statistics.css">
 </head>
 <body>
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <img src="/static/img/logo.jpg">
+    <img src="../static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>

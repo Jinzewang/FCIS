@@ -10,18 +10,17 @@
 <html>
 <head>
     <title>登录</title>
-    <link rel="stylesheet" href="/static/css/logon.css">
+    <link rel="stylesheet" href="../static/css/logon.css">
 </head>
 <body>
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--头部制作--%>
 <div class="header">
-    <img src="/static/img/img.jpg" class="himg">
     <div class="head">
         <div class="headr"><p>总工会先进个人与先进集体</p><br>
             <p class="p1">综合信息管理系统</p>
         </div>
-        <img src="/static/img/logo.jpg" class="rimg">
+        <img src="../static/img/logo.jpg" class="rimg">
         <div class="yin">
             <p>Advanced individual and collective integrated information management</p><br>
             <p class="rbimg"> system of the Federation of trade unions</p>
@@ -29,11 +28,11 @@
     </div>
 </div>
 <%--登录制作--%>
-<form action="/checklogin">
+<form action="/checkLogin">
     <div class="logon">
-        <div class="uname"><span>用户名:</span><input type="text"></div>
+        <div class="uname"><span>用户名:</span><input type="text" name="username"></div>
         <br>
-        <div class="passd"><span>密&nbsp;&nbsp;&nbsp;码:</span><input type="password">
+        <div class="passd"><span>密&nbsp;&nbsp;&nbsp;码:</span><input type="password" name="password">
             <span class="wpassd" onclick="window.location.href='password_reset.jsp'">忘记密码</span></div>
         <br>
         <input type="submit" class="blogon" value="登录">

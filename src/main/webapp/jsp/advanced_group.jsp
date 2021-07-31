@@ -11,7 +11,8 @@
 <html>
 <head>
     <title>先进集体管理</title>
-    <link rel="stylesheet" href="/static/css/advanced_group.css">
+    <link rel="stylesheet" href="../static/css/advanced_group.css">
+    <link rel="stylesheet" href="../static/js/chuandi.js">
     <style>
         /*将申报和修改页面进行隐藏*/
         .apply {
@@ -66,7 +67,7 @@
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <img src="/static/img/logo.jpg">
+    <img src="../static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>
@@ -101,7 +102,7 @@
     <table border="1" cellspacing="0" cellpadding="0" border-collapse="collapse">
         <tr>
             <th>序号</th>
-            <th>工号</th>
+            <th>集体名称</th>
             <th>申报人姓名</th>
             <th>申报类型</th>
             <th>申报时间</th>
@@ -135,37 +136,29 @@
             <div class="q">先进集体信息申报</div>
             <%--        第一个小页面--%>
             <div id="step1" style="margin-bottom: 30px">
-                <div class="st1"><span>&nbsp;选择劳模称号:</span>
-                    <select name="modelWorkerTitle">
-                        <option value="nationalModelWorker">全国劳模</option>
-                        <option value="SichuanModelWorker">四川省劳模</option>
-                        <option value="national51ModelWorker">全国五一劳动奖章</option>
-                        <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
-                        <option value="other">其他劳动荣誉称号</option>
+                <div class="st1"><span>&nbsp;选择荣誉称号:</span>
+                    <select name="collectiveTitle">
+                        <option value="nationalModelWorker">全国五一劳动获奖单位</option>
+                        <option value="SichuanModelWorker">四川省五一劳动获奖单位</option>
+                        <option value="national51ModelWorker">全国工人先锋号</option>
+                        <option value="Sichuan51ModelWorker">四川省工人先锋号</option>
                     </select></div>
-                <div class="st2"><span>&nbsp;选择劳模待遇:</span>
-                    <select name="modelWorkerTreatment">
-                        <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
-                        <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
-                        <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
-                        <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
-                    </select>
-                </div>
             </div>
             <%--        <br>--%>
             <hr>
             <%--        第二个小页面--%>
             <div id="step2">
                 <div style="margin-top: 30px">
-                    <span>所属市州产业:</span><input type="text">
-                    <span>单位名称:</span><input type="text">
+                    <span>所属市州产业:</span><input type="text" name="collectiveProvance">
+                    <span>单位名称:</span><input type="text" name="companyName">
                 </div>
                 <div>
-                    <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text">
-                    <span>联系方式:</span><input type="text"><br>
+                    <span>负责人姓名&nbsp;&nbsp;&nbsp;:</span><input type="text" name="principalName">
+                    <span>联系方式:</span><input type="text" name="principalPhone"><br>
                 </div>
                 <div>
-                    <span>主要突出事迹:</span><input type="text">
+                    <span>主要突出事迹:</span><input type="text" name="collectiveOutstanding">
+                    <div><span>上传认定材料:</span><input type="file" name="advance_file" style="border: none"></div>
                 </div>
             </div>
             <div class="step3">
@@ -180,22 +173,13 @@
             <div class="q">先进集体信息修改</div>
             <%--        第一个小页面--%>
             <div id="step1" style="margin-bottom: 30px">
-                <div class="st1"><span>&nbsp;选择劳模称号:</span>
+                <div class="st1"><span>&nbsp;选择荣誉称号:</span>
                     <select name="modelWorkerTitle">
-                        <option value="nationalModelWorker">全国劳模</option>
-                        <option value="SichuanModelWorker">四川省劳模</option>
-                        <option value="national51ModelWorker">全国五一劳动奖章</option>
-                        <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
-                        <option value="other">其他劳动荣誉称号</option>
+                        <option value="nationalModelWorker">全国五一劳动获奖单位</option>
+                        <option value="SichuanModelWorker">四川省五一劳动获奖单位</option>
+                        <option value="national51ModelWorker">全国工人先锋号</option>
+                        <option value="Sichuan51ModelWorker">四川省工人先锋号</option>
                     </select></div>
-                <div class="st2"><span>&nbsp;选择劳模待遇:</span>
-                    <select name="modelWorkerTreatment">
-                        <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
-                        <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
-                        <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
-                        <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
-                    </select>
-                </div>
             </div>
             <%--        <br>--%>
             <hr>
@@ -211,6 +195,7 @@
                 </div>
                 <div>
                     <span>主要突出事迹:</span><input type="text">
+                    <div><span>上传认定材料:</span><input type="file" style="border: none"></div>
                 </div>
             </div>
             <div class="step3">

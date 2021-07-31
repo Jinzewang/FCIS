@@ -23,5 +23,24 @@ public interface UserService {
      */
     boolean adminInsertUser(User user, String passwd);
 
+    /**
+     * 按条件查询用户
+     * @param condition 查询条件
+     * @return 用户列表
+     */
     List<User> selectUserAdmin(String condition);
+
+    /**
+     * 系统用户管理之删除用户
+     * @param id 要删除用户的id
+     * @return 返回是否删除成功
+     */
+    boolean deleteUserAdmin(Integer id);
+
+    /**
+     * 系统管理之用户权限分配
+     * @param id 要分配用户的id
+     * @param permission 要给与其分配的权限
+     */
+    void userAssignPermission(Integer id, String permission);
 }

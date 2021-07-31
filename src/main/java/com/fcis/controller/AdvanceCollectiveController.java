@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -26,14 +27,14 @@ public class AdvanceCollectiveController {
      * 按称号查询先进集体并分页展示
      * @param collectiveTitle 称号
      * @param currPage 当前页码
-     * @param pageSize 页面记录条数
      * @return 返回所有集体
      */
-    @RequestMapping("/selectAdvance/{currPage}/{pageSize}")
+    @RequestMapping("/selectAdvance/{currPage}")
     public List<CollectiveInfo> selectAdvanceCollective(String collectiveTitle
-            , @PathVariable("currPage") int currPage
-            , @PathVariable("pageSize") int pageSize) {
-        return advanceCollectiveService.selectAdvance(collectiveTitle,currPage,pageSize);
+            , @PathVariable("currPage") int currPage, HttpSession session) {
+        List<CollectiveInfo> allCollectives = advanceCollectiveService.selectAdvance(collectiveTitle, currPage, 10);
+        session.setAttribute("allCollectives",allCollectives);
+        return allCollectives;
     }
 
     /**

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    缓存管理器-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+    <!-- 配置 Shiro 的 SecurityManager Bean. -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="authenticator" ref="authenticator"/>
+        <property name="rememberMeManager" ref="rememberManager"/>
+        <property name="realms" ref="firstRealm"/>
+    </bean>
+    <!--配置realm认证策略-->
+    <bean id="authenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+        <property name="authenticationStrategy">
+            <!-- <bean class="org.apache.shiro.authc.pam.FirstSuccessfulStrategy"></bean>-->
+            <bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"/>
+            <!--<bean class="org.apache.shiro.authc.pam.AllSuccessfulStrategy"></bean>-->
+        </property>
+
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/jsp/logon.jsp"/>
+        <property name="successUrl" value="/jsp/home_page.jsp"/>
+        <property name="unauthorizedUrl" value="/jsp/logon.jsp"/>
+
+        <!--filterChainDefinitionMap和filterChainDefinitions只能存在一个-->
+        <!--<property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"/>-->
+         <property name="filterChainDefinitions">
+             <value>
+                 <!--/logout=logout
+                 /admin=roles[admin]
+                 /user=roles[user]
+                 /vip=roles[vip]-->
+                 /static/**=anon
+                 /jsp/logon.jsp=logout
+                 /jsp/logon.jsp=anon
+                 /**=authc
+             </value>
+         </property>
+    </bean>
+
+    <!--设置cookie-->
+    <bean id="rememberCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="jizhuwo"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="100"/>
+    </bean>
+    <!--记住我配置-->
+    <bean id="rememberManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="rememberCookie"/>
+    </bean>
+
+    <!-- 配置进行授权和认证的 Realm，要新增一个java类来实现，下面会有，class=包名.类名，init-methood是初始化的方法 -->
+    <bean id="firstRealm" class="com.fcis.shiro.MyReal">
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <!--加密算法-->
+                <property name="hashAlgorithmName" value="MD5"/>
+                <!--加密次数-->
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
+
+    </bean>
+
+    <!--<bean id="secondRealm" class="com.shiro.realms.SecondRealm">
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="SHA1"/>
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
+    </bean>-->
+
+    <!--buildFilterChainDefinitionMap实例工厂-->
+    <!--<bean id="filterChainDefinitionMapFactory" class="com.shiro.factory.FilterChainDefinitionMapFactory"/>
+
+    <bean id="filterChainDefinitionMap" factory-bean="filterChainDefinitionMapFactory"
+          factory-method="buildFilterChainDefinitionMap"/>
+-->
+    <!--注解生效-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!--
+  启用 IOC 容器中使用 shiro 的注解. 但必须在配置了 LifecycleBeanPostProcessor 之后才可以使用.
+    -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+</beans>

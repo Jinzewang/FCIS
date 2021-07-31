@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>认定与审核</title>
-    <link rel="stylesheet" href="/static/css/cognizance_examine.css">
+    <link rel="stylesheet" href="../static/css/cognizance_examine.css">
     <style>
         /*将审核页面进行隐藏*/
         .cognizance {
@@ -44,7 +44,7 @@
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <img src="/static/img/logo.jpg">
+    <img src="../static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>
@@ -109,26 +109,12 @@
     <%--认定制作--%>
     <div class="cognizance">
         <div class="q">先进信息审核</div>
-        <%--        第一个小页面--%>
+        <%--        先进个人审核小页面--%>
         <form action="/auditModelWorker">
             <div id="step1" style="margin-bottom: 30px">
-                <div class="st1"><span>&nbsp;选择劳模称号:</span>
-                    <select name="modelWorkerTitle">
-                        <option value="nationalModelWorker">全国劳模</option>
-                        <option value="SichuanModelWorker">四川省劳模</option>
-                        <option value="national51ModelWorker">全国五一劳动奖章</option>
-                        <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
-                        <option value="other">其他劳动荣誉称号</option>
-                    </select></div>
-                <div class="st2"><span>&nbsp;选择劳模待遇:</span>
-                    <select name="modelWorkerTreatment">
-                        <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
-                        <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
-                        <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
-                        <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
-                    </select>
-                </div>
-                <span>批语:</span><textarea class="mt" cols="25" rows="5" style="margin-top: 23px"></textarea>
+                <div class="st1"><span>&emsp;称号:</span><input type="text" readonly="readonly" value=""></div>
+                <div class="st2"><span>&emsp;待遇:</span><input type="text" readonly="readonly" value=""></div>
+                <span>批语:</span><textarea name="reviewModelWorker" class="mt" cols="25" rows="5" style="margin-top: 23px"></textarea>
             </div>
             <div class="step2">
                 <input type="button" class="cc1" onclick="changeVisibilityh()" value="提交">
