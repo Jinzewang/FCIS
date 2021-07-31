@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.fcis.model.informationManagement.advancedCollective.CollectiveInfo" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: liu
   Date: 2021/7/22
@@ -8,6 +9,10 @@
 --%>
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<%
+    List<CollectiveInfo> co = (List<CollectiveInfo>) session.getAttribute("allCollectives");
+    int pagel = 1;
+%>
 <html>
 <head>
     <title>先进集体管理</title>
@@ -24,6 +29,36 @@
         }
     </style>
     <script type="text/javascript">
+        function subs(ID, addrs) {
+            <% if(pagel==1) {%>
+            alert("这是最小页了")
+            <% }else {%>
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: addrs,
+                data: <%=pagel-1%>,// 你的formid
+                async: false,
+                error: function (request) {
+                    alert("Connection error:" + request.error);
+                },
+            });
+            <%}%>
+        }
+
+        function subx(ID, addrs) {
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: addrs,
+                data: <%=pagel+1%>,// 你的formid
+                async: false,
+                error: function (request) {
+                    alert("Connection error:" + request.error);
+                },
+            });
+        }
+
         function changeVisibilityv() {
             //申报按钮的实现
             $(".apply").css("display", "block");
@@ -99,36 +134,48 @@
 <hr style="margin-top: 4px;margin-bottom: 30px">
 <%--表格制造--%>
 <div class="ta">
-    <table border="1" cellspacing="0" cellpadding="0" border-collapse="collapse">
+    <table border="1" cellspacing="0" cellpadding="0" border-collapse="collapse" style="margin-left: 130px">
         <tr>
             <th>序号</th>
+            <th>编号</th>
             <th>集体名称</th>
-            <th>申报人姓名</th>
-            <th>申报类型</th>
-            <th>申报时间</th>
+            <th>所属地</th>
+            <th>荣誉称号</th>
             <th>审核状态</th>
-            <th>审核人</th>
-            <th>审核时间</th>
             <th>集体负责人</th>
+            <th>集体负责人联系方式</th>
             <th>操作</th>
         </tr>
         <%--        用分页方法重构一次--%>
         <% for (int i = 0; i < 10; i++) {%>
-        <tr>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td class="btn"><input type="button" value="查看">
-                <input type="button" onclick="changeVisibilitym()" value="修改">
-                <input type="button" value="删除"></td>
-        </tr>
+        <form method="post" id="individual">
+            <tr>
+                <td><input type="text" readonly="readonly">${status.count}</td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getId()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getCompanyName()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getCollectiveProvance()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getCollectiveTitle()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getIsDeleteAdvance()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getPrincipalName()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=co.get(i).getPrincipalPhone()%>
+                </td>
+                <input type="hidden" name="" value="<%=co.get(i).getId()%>">
+                <td class="btn"><input type="button" onclick="sub('individual','selectUsers')" value="查看">
+                    <input type="button" onclick="changeVisibilitym();sub('individual','selectUsers')" value="修改">
+                    <input type="button" value="删除"></td>
+            </tr>
+        </form>
         <%}%>
+        <input name="prev" type="button" value="上一页" onClick="subs('individual','selectUsers')"
+               style="margin-left: 560px">
+        <div style="float: left;height: 40px;line-height: 40px">第<%=pagel%>页</div>
+        <input name="next" type="button" value="下一页" onClick="subx('individual','selectUsers')">
     </table>
     <%--申请表制作--%>
     <div class="apply">

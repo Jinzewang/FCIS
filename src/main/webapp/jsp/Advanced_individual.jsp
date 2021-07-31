@@ -1,4 +1,5 @@
 <%@ page import="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -11,8 +12,10 @@
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <%
-    ModelWorker mo = (ModelWorker) session.getAttribute("allUser");
+    List<ModelWorker> mo = (List<ModelWorker>) session.getAttribute("modelWorkerList");
     //接收四个类数据
+    int pagel = 1;
+
 %>
 <html>
 <head>
@@ -20,7 +23,7 @@
     <link rel="stylesheet" href="../static/css/Advanced_individual.css">
     <link rel="stylesheet" href="../static/js/chuandi.js">
     <style>
-        .apply, .modify {
+        .apply, .modify, .look {
             display: none;
         }
 
@@ -28,11 +31,41 @@
             display: block;
         }
 
-        #step2, #step3, #step4, #step6, #step7, #step8 {
+        #step2, #step3, #step4, #step6, #step7, #step8，#step9，#step10，#step11，#step12 {
             display: none;
         }
     </style>
     <script type="text/javascript">
+        function subs(ID, addrs) {
+            <% if(pagel==1) {%>
+            alert("这是最小页了")
+            <% }else {%>
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: addrs,
+                data: <%=pagel-1%>,// 你的formid
+                async: false,
+                error: function (request) {
+                    alert("Connection error:" + request.error);
+                },
+            });
+            <%}%>
+        }
+
+        function subx(ID, addrs) {
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: addrs,
+                data: <%=pagel+1%>,// 你的formid
+                async: false,
+                error: function (request) {
+                    alert("Connection error:" + request.error);
+                },
+            });
+        }
+
         function getnext(i) {
             var sz = new Array("step1", "step2", "step3", "step4");
             for (var j = 0; j < sz.length; j++) {
@@ -55,18 +88,39 @@
             }
         }
 
+        function getnext3(i) {
+            var sz = new Array("step9", "step10", "step11", "step12");
+            for (var j = 0; j < sz.length; j++) {
+                if (i == sz[j]) {
+                    document.getElementById(i).style.display = "block";
+                } else {
+                    document.getElementById(sz[j]).style.display = "none";
+                }
+            }
+        }
+
         function changeVisibilityv() {
             $(".apply").css("display", "block");
             $(".modify").css("display", "none");
+            $(".look").css("display", "none");
             $('#step1').css('display', 'block');
-            $('#step2,#step3,#step4,#step5,#step6,#step7,#step8').css('display', 'none');
+            $('#step2,#step3,#step4,#step5,#step6,#step7,#step8，#step9，#step10，#step11，#step12').css('display', 'none');
+        }
+
+        function changeVisibilityl() {
+            $(".look").css("display", "block");
+            $(".apply").css("display", "none");
+            $(".modify").css("display", "none");
+            $('#step9').css('display', 'block');
+            $('#step1,#step2,#step3,#step4,#step5,#step6,#step7,#step8，#step10，#step11，#step12').css('display', 'none');
         }
 
         function changeVisibilitym() {
             $(".modify").css("display", "block");
             $(".apply").css("display", "none");
+            $(".look").css("display", "none");
             $('#step5').css('display', 'block');
-            $('#step1,#step2,#step3,#step4,#step6,#step7,#step8').css('display', 'none');
+            $('#step1,#step2,#step3,#step4,#step6,#step7,#step8，#step9，#step10，#step11，#step12').css('display', 'none');
         }
 
         function cancel() {
@@ -131,32 +185,41 @@
     <table border="1" cellspacing="0" cellpadding="0" border-collapse="collapse">
         <tr>
             <th>序号</th>
+            <th>编号</th>
             <th>姓名</th>
-            <th>申报类型</th>
-            <th>申报时间</th>
+            <th>性别</th>
+            <th>申报称号</th>
             <th>申报状态</th>
-            <th>审核人</th>
             <th>审核时间</th>
             <th>操作</th>
         </tr>
-        <c:forEach items="<%=mo%>%" var="mo" varStatus="status">
-            <td><input type="text" readonly="readonly">${status.count}</td>
-            <td><input type="text" readonly="readonly"><%=mo.getInfo().getModelName()%>
-            </td>
-            <td><input type="text" readonly="readonly"><%=mo.getInfo()%>
-            </td>
-            <td><input type="text" readonly="readonly"><%=mo.getInfo()%>
-            </td>
-            <td><input type="text" readonly="readonly"><%=mo.getInfo()%>
-            </td>
-            <td><input type="text"></td>
-            <td><input type="text"></td>
-            <td class="btn"><input type="button" value="查看">
-                <input type="button" onclick="changeVisibilitym()" value="修改">
-                <input type="button" value="删除"></td>
-        </c:forEach>
-        <input name="prev" type="button" value="上一页" onClick="">
-        <input name="next" type="button" value="下一页" onClick="">
+        <% for (int i = 0; i < 9; i++) {%>
+        <form method="post" id="individual">
+            <tr>
+                <td><input type="text" readonly="readonly">${status.count}</td>
+                <td><input type="text" readonly="readonly"><%=mo.get(i).getId()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=mo.get(i).getInfo().getModelName()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=mo.get(i).getInfo().getSex()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=mo.get(i).getModelWorkerTitle()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=mo.get(i).getIsCertified()%>
+                </td>
+                <td><input type="text" readonly="readonly"><%=mo.get(i)%>
+                </td>
+                <input type="hidden" name="" value="<%=mo.get(i).getId()%>">
+                <td class="btn"><input type="button" onclick="changeVisibilityl();sub('individual','selectUsers')"
+                                       value="查看">
+                    <input type="button" onclick="changeVisibilitym();sub('individual','selectUsers')" value="修改">
+                    <input type="button" value="删除"></td>
+            </tr>
+        </form>
+        <%}%>
+        <input type="text" readonly="readonly"><span>第<%=pagel%>页</span>
+        <input name="prev" type="button" value="上一页" onClick="subs('individual','selectUsers')">
+        <input name="next" type="button" value="下一页" onClick="subx('individual','selectUsers')">
     </table>
     <%--申请表制作--%>
     <div class="apply">
@@ -252,7 +315,8 @@
                     <input type="radio" value="no" name="stateofHealth" class="rad"
                            style="margin-left: 10px;width: 20px;height: 20px;">不健康
                 </div>
-                <div><span>是否已获得荣誉称号:</span><input type="radio" name="modelWorkerTitle" checked="checked" class="rad" value="1"
+                <div><span>是否已获得荣誉称号:</span><input type="radio" name="modelWorkerTitle" checked="checked" class="rad"
+                                                   value="1"
                                                    style="width: 20px;height: 20px;">是
                     <input type="radio" value="0" name="modelWorkerTitle" class="rad"
                            style="margin-left: 10px; width: 20px;height: 20px;">否
@@ -282,15 +346,140 @@
                 <div class="one">输入认定材料</div>
                 <div><span>授予单位:</span><input class="te1" type="text" name="awardingUnit"></div>
                 <div><span>授予时间:</span><input class="te1" type="date" name="awardingTime"></div>
-                <div><span class="two">表彰决定文件名:</span><input type="text" name="recognitionFileName" style="width: 200px;"></div>
+                <div><span class="two">表彰决定文件名:</span><input type="text" name="recognitionFileName"
+                                                             style="width: 200px;"></div>
                 <div><span class="three">文件名文号:</span><input type="text" name="symbol" style="width: 200px;"></div>
                 <div><span>发文单位:</span><input class="te1" type="text" name="recognitionUnit"></div>
                 <div><span>发文日期:</span><input class="te1" type="date" name="recognitionTime"></div>
-                <div><span class="four">上传认定材料:</span><input type="file" style="width: 160px; border: none;" name="file"></div>
+                <div><span class="four">上传认定材料:</span><input type="file" style="width: 160px; border: none;"
+                                                             name="file"></div>
                 <input type="button" class="cc1" onclick="getnext('step3')" style="margin-top: 10px;" value="上一步">
                 <input type="submit" class="cc2" onclick="refer();sub('four','next3');" value="提交">
                 <input type="button" class="cc3" onclick="cancel()" value="取消">
             </form>
+        </div>
+    </div>
+    <%--    详情--%>
+    <div class="look">
+        <div class="q">先进个人信息详情</div>
+        <%--        第一个小页面--%>
+        <div id="step9">
+            <div class="st1"><span>选择劳模称号:</span>
+                <select name="modelWorkerTitle">
+                    <option value="nationalModelWorker">全国劳模</option>
+                    <option value="SichuanModelWorker">四川省劳模</option>
+                    <option value="national51ModelWorker">全国五一劳动奖章</option>
+                    <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
+                    <option value="other">其他劳动荣誉称号</option>
+                </select></div>
+            <div class="st2"><span>选择劳模待遇:</span>
+                <select name="modelWorkerTreatment">
+                    <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
+                    <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
+                    <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
+                    <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
+                </select>
+            </div>
+            <input type="button" class="cc1" onclick="getnext3('step10')" value="下一页">
+            <input type="button" class="cc2" onclick="cancel()" value="取消">
+        </div>
+        <%--        第二个小页面--%>
+        <div id="step10">
+            <div style="margin-top: 40px">
+                <span>姓&emsp;&emsp;名:</span><input type="text">
+                <span>身份证号:</span><input type="text" class="t1">
+            </div>
+            <div>
+                <span>性&emsp;&emsp;别:</span><input type="radio" class="rad" value="man" name="sex" checked="checked"
+                                                   style="width: 20px;height: 20px;">男
+                <input type="radio" value="woman" class="rad" name="sex"
+                       style="margin-left: 63px;width: 20px;height: 20px;">女
+                <span>联系电话:</span><input type="text" class="t1">
+            </div>
+            <div>
+                <span>民&emsp;&emsp;族:</span>
+                <select>
+                    <option value="han_nationality">汉族</option>
+                    <option value="ethnic_minority">少数民族</option>
+                </select><span>工作单位:</span><input type="text" class="t1">
+            </div>
+            <div>
+                <span>出生年月:</span><input type="date">
+                <span>职&emsp;&emsp;位:</span>
+                <select style="width: 175px;">
+                    <option value="nothing">无</option>
+                    <option value="finance">财务</option>
+                    <option value="vice_president">副会长</option>
+                    <option value="president">会长</option>
+                </select>
+            </div>
+            <div>
+                <span>文化程度:</span>
+                <select>
+                    <option value="primary_school">小学</option>
+                    <option value="junior_middle_school">初中</option>
+                    <option value="high_school">高中</option>
+                    <option value="specialty">专科</option>
+                    <option value="undergraduate">本科</option>
+                    <option value="master">硕士</option>
+                    <option value="doctor">博士</option>
+                </select><span>获得称号时间:</span><input type="date">
+            </div>
+            <div>
+                <span>政治面貌:</span>
+                <select>
+                    <option value="masses">群众</option>
+                    <option value="league_member">团员</option>
+                    <option value="party_member">党员</option>
+                </select><span>授予单位:</span><input type="text" class="t1"><br>
+            </div>
+            <input type="button" class="cc1" onclick="getnext3('step9')" value="上一页">
+            <input type="button" class="cc2" onclick="getnext3('step11')" value="下一页">
+            <input type="button" class="cc3" onclick="cancel()" value="取消">
+        </div>
+        <%--        第三个小页面--%>
+        <div id="step11">
+            <div style="margin-top: 23px;"><span>身体健康状况:</span>
+                <input type="radio" name="healthy" class="rad" value="yse" checked="checked"
+                       style="margin-left: 60px;width: 20px;height: 20px;">健康
+                <input type="radio" value="no" name="healthy" class="rad"
+                       style="margin-left: 10px;width: 20px;height: 20px;">不健康
+            </div>
+            <div><span>是否已获得荣誉称号:</span><input type="radio" name="honor" checked="checked" class="rad" value="yse"
+                                               style="width: 20px;height: 20px;">是
+                <input type="radio" value="no" name="honor" class="rad"
+                       style="margin-left: 10px; width: 20px;height: 20px;">否
+            </div>
+            <div><span>家庭困难情况:</span>
+                <select>
+                    <option value="not_difficult">不困难</option>
+                    <option value="first_level_difficulty">一级困难</option>
+                    <option value="two_level_difficulty">二级困难</option>
+                    <option value="three_level_difficulty">三级困难</option>
+                </select></div>
+            <div><span>&emsp;&emsp;就业情况:</span>
+                <select>
+                    <option value="retire">退休</option>
+                    <option value="on_duty">在岗</option>
+                    <option value="liberal_professions">自由职业</option>
+                </select></div>
+            <div><span style="width: 145px;">主要突出事迹:</span><input type="text"></div>
+            <input type="button" class="cc1" onclick="getnext3('step10')" value="上一页">
+            <input type="button" class="cc2" onclick="getnext3('step12')" value="下一页">
+            <input type="button" class="cc3" onclick="cancel()" value="取消">
+        </div>
+        <%--        第四个小页面--%>
+        <div id="step12">
+            <div class="one">输入认定材料</div>
+            <div><span>授予单位:</span><input class="te1" type="text"></div>
+            <div><span>授予时间:</span><input class="te1" type="date"></div>
+            <div><span class="two">表彰决定文件名:</span><input type="text" style="width: 200px;"></div>
+            <div><span class="three">文件名文号:</span><input type="text" style="width: 200px;"></div>
+            <div><span>发文单位:</span><input class="te1" type="text"></div>
+            <div><span>发文日期:</span><input class="te1" type="date"></div>
+            <div><span class="four">上传认定材料:</span><input type="file" style="width: 160px; border: none;"></div>
+            <input type="button" class="cc1" onclick="getnext3('step11')" style="margin-top: 10px;" value="上一页">
+            <input type="button" class="cc3" onclick="cancel()" value="取消">
         </div>
     </div>
     <%--    修改制作--%>

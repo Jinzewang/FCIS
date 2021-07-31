@@ -68,6 +68,18 @@ public class AdvanceCollectiveController {
     }
 
     /**
+     * 查询先进集体的详细信息
+     * @param id id
+     * @param session session
+     * @return
+     */
+    @RequestMapping("/selectCollectiveDetails")
+    public CollectiveInfo selectCollectiveDetails(Integer id, HttpSession session) {
+        CollectiveInfo collectiveInfo = advanceCollectiveService.selectCollectiveDetails(id);
+        session.setAttribute("collectiveInfo",collectiveInfo);
+        return collectiveInfo;
+    }
+    /**
      * 统计先进集体 按荣誉称号进行二位饼状图分析
      * @return
      */

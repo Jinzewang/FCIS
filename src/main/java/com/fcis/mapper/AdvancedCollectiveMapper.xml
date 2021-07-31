@@ -45,7 +45,21 @@
     <select id="deleteSuccess" parameterType="Integer" resultType="Integer">
         select isDeleteAdvance from advanced_collective where advanced_id=#{id}
     </select>
-
+<!--    查询先进集体的详细信息-->
+    <resultMap id="detailsResultMap" type="com.fcis.model.informationManagement.advancedCollective.CollectiveInfo">
+        <id column="advanced_id" property="id"/>
+        <result column="advanced_title" property="collectiveTitle"/>
+        <result column="advanced_provance" property="collectiveProvance"/>
+        <result column="company_name" property="companyName"/>
+        <result column="principal_name" property="principalName"/>
+        <result column="principal_phone" property="principalPhone"/>
+        <result column="addvance_outstanding" property="collectiveOutstanding"/>
+        <result column="reasonof_cancel" property="collectiveCancel"/>
+        <result column="isDeleteAdvance" property="isDeleteAdvance"/>
+    </resultMap>
+    <select id="selectCollectiveDetails" resultMap="detailsResultMap">
+        select * from advanced_collective where advanced_id=#{id}
+    </select>
 <!--    先进集体统计-->
     <select id="statisticsNationalAdvance" resultType="Integer">
         select advanced_id from advanced_collective where advanced_title like '全国先进%'

@@ -54,16 +54,15 @@ a {
 }
 
 .header .rimg {
-    margin-top: -116px;
+    margin-top: -117px;
+    height: 130px;
     margin-left: 375px;
-    height: 130px
 }
 
 .header .head .headr {
     color: #CC000F;
     font-family: "华文行楷";
     font-size: 45px;
-    margin-top: 30px;
     margin-left: 500px;
     font-weight: 800;
 }
@@ -77,7 +76,8 @@ a {
     color: #CC000F;
     font-family: "华文行楷";
     font-size: 30px;
-    margin-right: 400px;
+    margin-left: 400px;
+    margin-top: 20px;
     font-weight: 800;
 }
 

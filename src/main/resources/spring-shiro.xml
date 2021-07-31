@@ -36,9 +36,10 @@
                  /admin=roles[admin]
                  /user=roles[user]
                  /vip=roles[vip]-->
+                 /checkLogin=anon
                  /static/**=anon
-                 /jsp/logon.jsp=logout
                  /jsp/logon.jsp=anon
+                 /jsp/home_page.jsp=anon
                  /**=authc
              </value>
          </property>

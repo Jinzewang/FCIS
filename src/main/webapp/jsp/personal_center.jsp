@@ -70,7 +70,7 @@
         <span class="mr2">所享受待遇:</span><textarea class="mt" cols="25" rows="5" readonly="readonly"></textarea>
     </div>
     <input type="button" class="revise" onclick="window.location.href='modify_data.jsp'" value="修改资料">
-    <input type="button" class="reset" value="重置密码">
+    <input type="button" class="reset" value="修改密码">
 </div>
 </body>
 </html>

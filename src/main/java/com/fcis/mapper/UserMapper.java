@@ -1,5 +1,6 @@
 package com.fcis.mapper;
 
+import com.fcis.model.Role;
 import com.fcis.model.User;
 import com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker;
 import org.apache.ibatis.annotations.Param;
@@ -27,8 +28,9 @@ public interface UserMapper {
      * @param username 登录用户名
      * @return
      */
-    User findByUsername(String username);
-
+    User findByUsername(@Param("username") String username);
+    // 根据用户id查找对应的角色
+    List<Role> findUserRole(@Param("id") String id);
     List<User> findAllUser();
     /**
      * 注册用户和密码

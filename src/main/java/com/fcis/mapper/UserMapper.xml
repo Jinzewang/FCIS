@@ -49,7 +49,10 @@
 		<result column="user_password" property="password"/>
 	</resultMap>
     <select id="findByUsername" resultMap="checkLogonResultMap">
-		select * from user where user_name = #{username}
+		select * from user where user_account = #{username}
+	</select>
+	<select id="findUserRole" resultType="com.fcis.model.Role" parameterType="String">
+		select role_type from role where role_id in (select role_id from user_role where user_Id=#{id})
 	</select>
 <!--	修改密码-->
 	<update id="updatePassWord">

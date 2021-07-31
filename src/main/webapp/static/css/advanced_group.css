@@ -157,7 +157,7 @@ a {
 /*表格设计*/
 .ta {
     float: left;
-    margin-left: 20px;
+    margin-left: 130px;
     position: relative;
 }
 
@@ -314,3 +314,51 @@ a {
     margin-left: 0;
 }
 
+/*查看*/
+
+.ta .look {
+    float: left;
+    width: 750px;
+    height: 449px;
+    background-color: #fff;
+    margin-left: 330px;
+    margin-top: -492px;
+    position: absolute;
+    border: 0.5px solid black;
+}
+
+.ta .look .q {
+    width: 320px;
+    margin-left: 220px;
+    font-size: 30px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: -30px;
+    background-color: white;
+    font-family: "华文行楷";
+}
+
+.ta .look span {
+    font-size: 20px;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+.ta .look input {
+    float: none;
+    margin-top: 20px;
+    height: 30px;
+    width: 140px;
+    border: 1px solid;
+}
+
+.ta .look select {
+    margin-top: 20px;
+    height: 30px;
+    width: 140px;
+}
+
+.ta .look .st1 span {
+    margin-left: 0;
+}

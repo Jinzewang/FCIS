@@ -24,7 +24,7 @@ public class UserController {
     UserService userService;
 
     // 按条件查询劳模
-    @RequestMapping("/selectUsers/{currPage}")
+    @RequestMapping("/selectUsers/{currPage}")//url=/selectUsers?currPage=2
     public List<ModelWorker> getAllUsers(String username, String otherCondition, String sex, String nationality, String politicalState
             , @PathVariable("currPage") int currPage,HttpSession session) {
         List<ModelWorker> modelWorkerList = userService.getAllUser(username, otherCondition, sex, nationality, politicalState, currPage, 9);

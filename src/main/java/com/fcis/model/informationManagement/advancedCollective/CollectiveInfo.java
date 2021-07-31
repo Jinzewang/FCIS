@@ -10,6 +10,7 @@ public class CollectiveInfo {
     private String principalPhone; //负责人联系方式
     private String collectiveOutstanding; //集体主要突出事迹
     private String collectiveCancel = "无"; //集体取消称号原因
+    private byte isDeleteAdvance; //先进集体状态 被删除为1， 否则为0
 
     @Override
     public String toString() {
@@ -23,6 +24,7 @@ public class CollectiveInfo {
                 ", principalPhone='" + principalPhone + '\'' +
                 ", collectiveOutstanding='" + collectiveOutstanding + '\'' +
                 ", collectiveCancel='" + collectiveCancel + '\'' +
+                ", isDeleteAdvance=" + isDeleteAdvance +
                 '}';
     }
 
@@ -104,5 +106,13 @@ public class CollectiveInfo {
 
     public void setCollectiveCancel(String collectiveCancel) {
         this.collectiveCancel = collectiveCancel;
+    }
+
+    public byte getIsDeleteAdvance() {
+        return isDeleteAdvance;
+    }
+
+    public void setIsDeleteAdvance(byte isDeleteAdvance) {
+        this.isDeleteAdvance = isDeleteAdvance;
     }
 }

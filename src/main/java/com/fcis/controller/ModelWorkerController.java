@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @Controller
 public class ModelWorkerController {
 
@@ -43,5 +46,17 @@ public class ModelWorkerController {
     public boolean deleteModelWorker(Integer id) {
         boolean deleteModelWorker = modelWorkerService.deleteModelWorker(id);
         return deleteModelWorker;
+    }
+
+    /**
+     * 查询劳模的详细信息
+     * @param id 劳模的唯一id
+     * @return 返回劳模对象
+     */
+    @RequestMapping("/selectModelWorkerDetails")
+    public ModelWorker selectModelWorkerDetails(HttpSession session, Integer id) {
+        List<ModelWorker> details = modelWorkerService.modelWorkersDetails(id);
+        session.setAttribute("details",details.get(0));
+        return details.get(0);
     }
 }

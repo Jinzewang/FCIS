@@ -58,7 +58,7 @@ public class AdvanceCollectiveImpl implements AdvanceCollectiveService {
         int sichuanWorkers = advancedCollectiveDao.statisticsProvenceWorkers().size();//四川省工人先锋号
         int cityWorkers = advancedCollectiveDao.statisticsCityWorkers().size();//市工人先锋号
         int companyWorkers = advancedCollectiveDao.statisticsCompanyWorkers().size();//企业先锋号
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
         list.add(0,nationalAdvance);
         list.add(1,sichuanAdvance);
         list.add(2,national51);
@@ -68,6 +68,17 @@ public class AdvanceCollectiveImpl implements AdvanceCollectiveService {
         list.add(6,cityWorkers);
         list.add(7,companyWorkers);
         return list;
+    }
+
+    /**
+     * 按id查询先进集体详细页面
+     *
+     * @param id 先进集体id
+     * @return
+     */
+    @Override
+    public CollectiveInfo selectCollectiveDetails(Integer id) {
+        return advancedCollectiveDao.selectCollectiveDetails(id);
     }
 
 }

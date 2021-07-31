@@ -42,6 +42,8 @@ public interface AdvancedCollectiveDao {
     // 判断删除是否成功
     int deleteSuccess(Integer id);
 
+    // 查询先进集体详细信息
+    CollectiveInfo selectCollectiveDetails(Integer id);
     /**
      * 查询 全国先进生产单位数
      * @return

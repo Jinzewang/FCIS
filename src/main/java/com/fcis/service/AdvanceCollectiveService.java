@@ -47,4 +47,11 @@ public interface AdvanceCollectiveService {
      * @return
      */
     List<Integer> statisticsCollective();
+
+    /**
+     * 按id查询先进集体详细页面
+     * @param id 先进集体id
+     * @return
+     */
+    CollectiveInfo selectCollectiveDetails(Integer id);
 }

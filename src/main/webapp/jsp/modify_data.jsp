@@ -48,7 +48,7 @@
 <hr>
 <br>
 <%--主体部分--%>
-<form method="post">
+<form>
     <div class="mainb">
         <div class="mleft">
             <div class="iml">
@@ -56,49 +56,23 @@
                 <input type="file" class="pho" value="photo">上传图片
             </div>
             <div class="cen">
-                <span class="ls">姓名:</span><input name="username" type="text" style="margin-right: 400px;margin-top: 50px"
-                                                  value="<%=mo.getInfo().getModelName()%>">
-<%--                <span class="rs">民族:</span><input type="text" value="<%=mo.getInfo().getNationality()%>"><br>--%>
-                <span class="ls">账号:</span><input name="account" type="text" style="margin-right: 400px" value="0">
-                <span class="rs">身份证号:</span><input name="identifyCard" type="text" value="0"><br>
-                <span class="ls">性别:</span>
-                <input type="radio" class="rad" value="man" name="user_sex" checked="checked"
+                <span class="ls">姓名:</span><input type="text" style="margin-right: 400px;margin-top: 50px" value="">
+                <span class="rs">账号:</span><input type="text" value=""><br>
+                <span class="ls" style="margin-left: 20px">身份证号:</span><input type="text" value=""
+                                                                              style="margin-right: 400px">
+                <span class="rs">性别:</span>
+                <input type="radio" class="rad" value="man" name="sex" checked="checked"
                        style="width: 20px;height: 20px;">男
-                <input type="radio" value="woman" class="rad" name="user_sex"
-                       style="margin-left: 30px;width: 20px;height: 20px;">女
-                <span style="margin-left: 475px">邮箱:</span><input name="email" type="text"
-                                                                  value="<%=mo.getInfo().getJobTitle()%>"><br>
-                <span class="ls">电话:</span><input name="user_phone" type="text" style="margin-right: 400px"
-                                                  value="<%=mo.getInfo().getPhone()%>">
-                <%--<span class="rs">地域:</span><input type="text" value="<%=mo.getInfo().getProvence()%>"><br>
-                <span>出生年月:</span><input type="date" style="margin-right: 400px;width: 158px;">
-                <span>身份证号:</span><input type="text"><br>
-                <span>文化程度:</span>
-                <select style="margin-right: 340px">
-                    <option value="primary_school">小学</option>
-                    <option value="junior_middle_school">初中</option>
-                    <option value="high_school">高中</option>
-                    <option value="specialty">专科</option>
-                    <option value="undergraduate">本科</option>
-                    <option value="master">硕士</option>
-                    <option value="doctor">博士</option>
-                </select>
-                <span>身体健康程度:</span>
-                <input type="radio" name="healthy" class="rad" value="yse" checked="checked"
-                       style="width: 20px;height: 20px;">健康
-                <input type="radio" value="no" name="healthy" class="rad"
-                       style="margin-left: 10px;width: 20px;height: 20px;">不健康<br>
-                <span>政治面貌:</span>
-                <select>
-                    <option value="masses">群众</option>
-                    <option value="league_member">团员</option>
-                    <option value="party_member">党员</option>
-                </select><br>--%>
-                <span>所属工会:</span><input name="union" type="text" value="0">
+                <input type="radio" value="woman" class="rad" name="sex"
+                       style="margin-left: 30px;width: 20px;height: 20px;">女<br>
+                <span class="ls">邮箱:</span><input type="text" style="margin-right: 400px">
+                <span class="rs">电话:</span><input type="text" style="margin-right: 400px"
+                                                  value=""><br>
+                <span style="margin-left: 20px">所属工会:</span><input type="text" value="">
             </div>
         </div>
-        <input type="submit" class="revise" value="保存">
-        <input type="button" class="reset" onclick="window.location.href='personal_center.jsp'" value="取消">
+        <input type="button" class="revise" value="保存">
+        <input type="button" class="reset" value="取消">
     </div>
 </form>
 </body>
