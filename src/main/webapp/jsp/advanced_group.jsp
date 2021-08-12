@@ -10,6 +10,7 @@
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <%
+    CollectiveInfo gol = (CollectiveInfo) session.getAttribute("CollectiveInfo");
     List<CollectiveInfo> co = (List<CollectiveInfo>) session.getAttribute("allCollectives");
     int pagel = 1;
 %>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="../static/js/chuandi.js">
     <style>
         /*将申报和修改页面进行隐藏*/
-        .apply {
+        .apply, .look {
             display: none;
         }
 
@@ -63,6 +64,7 @@
             //申报按钮的实现
             $(".apply").css("display", "block");
             $(".modify").css("display", "none");
+            $(".look").css("display", "none");
 
         }
 
@@ -70,12 +72,21 @@
             //修改按钮的实现
             $(".modify").css("display", "block");
             $(".apply").css("display", "none");
+            $(".look").css("display", "none");
+        }
+
+        function changeVisibilityl() {
+            //修改按钮的实现
+            $(".look").css("display", "block");
+            $(".apply").css("display", "none");
+            $(".modify").css("display", "none");
         }
 
         function changeVisibilityh() {
             //取消的方法
             $(".apply").css("display", "none");
             $(".modify").css("display", "none");
+            $(".look").css("display", "none");
             $(".apply").find('input[type=text],select,input[type=hidden]').each(function () {
                 $(this).val('');
             });
@@ -85,6 +96,7 @@
             //提交所使用的方法
             $(".apply").css("display", "none");
             $(".modify").css("display", "none");
+            $(".look").css("display", "none");
             //在这可以写一个跳转，现将数据给数据库
 
             refresh();
@@ -213,6 +225,36 @@
                 <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
             </div>
         </form>
+    </div>
+    <%--详情制作--%>
+    <div class="look">
+        <div class="q">先进集体信息详情</div>
+        <%--        第一个小页面--%>
+        <div id="step1" style="margin-bottom: 30px">
+            <div class="st1"><span>&nbsp;荣誉称号:</span><input type="text" readonly="readonly"
+                                                            value="<%=gol.getCollectiveTitle()%>"></div>
+        </div>
+        <%--        <br>--%>
+        <hr>
+        <%--        第二个小页面--%>
+        <div id="step2">
+            <div style="margin-top: 30px">
+                <span>所属市州产业:</span><input type="text" readonly="readonly" value="<%=gol.getCollectiveProvance()%>">
+                <span>单位名称:</span><input type="text" readonly="readonly" value="<%=gol.getCompanyName()%>">
+            </div>
+            <div>
+                <span>负责人名称&nbsp;&nbsp;&nbsp;:</span><input type="text" readonly="readonly"
+                                                            value="<%=gol.getPrincipalName()%>">
+                <span>联系方式:</span><input type="text" readonly="readonly" value="<%=gol.getPrincipalPhone()%>"><br>
+            </div>
+            <div>
+                <span>主要突出事迹:</span><input type="text" readonly="readonly" value="<%=gol.getCollectiveOutstanding()%>">
+            </div>
+        </div>
+        <div class="step3">
+            <input type="button" class="cc1" onclick="submit()" value="提交">
+            <input type="button" class="cc2" onclick="changeVisibilityh()" value="取消">
+        </div>
     </div>
     <%--修改制作--%>
     <form action="/declareAdvanceCollective">

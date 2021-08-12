@@ -28,7 +28,7 @@
     </div>
 </div>
 <%--登录制作--%>
-<form action="/checkLogin">
+<form action="/checkLogin" method="post">
     <div class="logon">
         <div class="uname"><span>用户名:</span><input type="text" name="username"></div>
         <br>

@@ -10,7 +10,7 @@
 --%>
 <%
     //接收两个类数据
-    ModelWorker mo = (ModelWorker) session.getAttribute("allUser");
+    List<User> us = (List<User>) session.getAttribute("users");
 
 %>
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
@@ -55,15 +55,13 @@
     <div class="mleft">
         <img src="#">
         <span>姓名:</span><input type="text" readonly="readonly" style="margin-right: 150px;margin-top: 50px"
-                               value="<%=mo.getInfo().getModelName()%>>">
-        <span>民族:</span><input type="text" readonly="readonly" value="<%=mo.getInfo().getNationality()%>"><br>
-        <span>性别:</span><input type="text" readonly="readonly" style="margin-right: 150px"
-                               value="<%=mo.getInfo().getSex()%>">
-        <span>职位:</span><input type="text" readonly="readonly" value="<%=mo.getInfo().getJobTitle()%>"><br>
-        <span style="margin-left: 150px">电话:</span><input type="text" readonly="readonly" style="margin-right: 150px"
-                                                          value="<%=mo.getInfo().getPhone()%>">
-        <span>地域:</span><input type="text" readonly="readonly" value="<%=mo.getInfo().getProvence()%>"><br>
-        <span style="margin-left: 150px">电子邮箱:</span><input type="text" readonly="readonly" value="0">
+                               value="<%=us.get(0).getUsername()%>>">
+        <span>性别:</span><input type="text" readonly="readonly" value="<%=us.get(0).getUser_sex()%>"><br>
+        <span>邮箱:</span><input type="text" readonly="readonly" style="margin-right: 150px"
+                               value="<%=us.get(0).getEmail()%>">
+        <span>电话:</span><input type="text" readonly="readonly" value="<%=us.get(0).getUser_phone()%>"><br>
+        <span style="margin-left: 150px">身份账号:</span><input type="text" readonly="readonly"
+                                                            value="<%=us.get(0).getIdentifyCard()%>">
     </div>
     <div class="mright">
         <span class="mr1">所得荣誉:</span><textarea style="float: left" cols="25" rows="5" readonly="readonly"></textarea>

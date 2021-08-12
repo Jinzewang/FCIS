@@ -32,11 +32,11 @@ public class UserController {
         return modelWorkerList;
     }
 
-    //正常访问login页面
+    /*//正常访问login页面
     @RequestMapping("/login")
     public String login() {
         return "logon";
-    }
+    }*/
 
     // 修改密码
     @RequestMapping("/updatePasswd")
@@ -59,7 +59,7 @@ public class UserController {
         return "用户修改失败！fail";
     }
     //表单提交过来的路径
-    /*@RequestMapping("/checkLogin")
+    @RequestMapping("/checkLogin")
     public String checkLogin(String username, String password){
         //调用service方法
         User user = userService.checkLogin(username, password);
@@ -69,8 +69,8 @@ public class UserController {
         }
         else
             return "logon";
-    }*/
-    // 权限控制加密测试
+    }
+    /*// 权限控制加密测试
     @RequestMapping("/checkLogin")
     public String checkLogin(String username,String password) {
         Subject subject = SecurityUtils.getSubject();
@@ -81,13 +81,14 @@ public class UserController {
             try {
                 //执行认证操作.
                 subject.login(token);
+                return "redirect:/jsp/home_page_jsp";
             } catch (AuthenticationException ae) {
                 System.out.println("登陆失败: " + ae.getMessage());
                 return "/logon.jsp";
             }
         }
-        return "redirect:/home_page.jsp";
-    }
+        return "redirect:/jsp/home_page.jsp";
+    }*/
     //测试超链接跳转到另一个页面是否可以取到session值
     /*@RequestMapping("/anotherpage")
     public String hrefpage(){

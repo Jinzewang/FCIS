@@ -26,8 +26,8 @@
 <%--bars部分制作--%>
 <div class="bars">
     <div class="bar">
-        <div style="margin-left: 80px" onclick="window.location.href='home_page.jsp'">首页</div>
-        <div onclick="window.location.href='Advanced_individual.jsp'" target="_blank">先进个人信息管理</div>
+        <div style="margin-left: 80px" onclick="window.location.href='/jsp/home_page.jsp'">首页</div>
+        <div onclick="window.location.href='/selectUsers/?currPage=1'" target="_blank">先进个人信息管理</div>
         <div onclick="window.location.href='advanced_group.jsp'">先进集体信息管理</div>
         <div onclick="window.location.href='cognizance_examine.jsp'">认定与审核</div>
         <div onclick="window.location.href='statistics.jsp'">信息统计</div>

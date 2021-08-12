@@ -12,10 +12,10 @@
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <%
+    List<ModelWorker> mod = (List<ModelWorker>) session.getAttribute("details");
     List<ModelWorker> mo = (List<ModelWorker>) session.getAttribute("modelWorkerList");
     //接收四个类数据
     int pagel = 1;
-
 %>
 <html>
 <head>
@@ -126,6 +126,7 @@
         function cancel() {
             $(".apply").css("display", "none");
             $(".modify").css("display", "none");
+            $(".look").css("display", "none");
             $(".modify").find('input[type=text],select,input[type=hidden]').each(function () {
                 $(this).val('');
             });
@@ -150,7 +151,7 @@
 <meta name=”viewport” content=”width=device-width, initial-scale=1″/>
 <%--    头部制作--%>
 <div class="header">
-    <img src="/static/img/logo.jpg">
+    <img src="../static/img/logo.jpg">
     <div><p>总工会先进个人和先进集体</p><br>
         <p class="p1">综合信息管理系统</p></div>
 </div>
@@ -198,8 +199,8 @@
             <tr>
                 <td><input type="text" readonly="readonly">${status.count}</td>
                 <td><input type="text" readonly="readonly"><%=mo.get(i).getId()%>
-                </td>
                 <td><input type="text" readonly="readonly"><%=mo.get(i).getInfo().getModelName()%>
+                </td>
                 </td>
                 <td><input type="text" readonly="readonly"><%=mo.get(i).getInfo().getSex()%>
                 </td>
@@ -365,20 +366,9 @@
         <%--        第一个小页面--%>
         <div id="step9">
             <div class="st1"><span>选择劳模称号:</span>
-                <select name="modelWorkerTitle">
-                    <option value="nationalModelWorker">全国劳模</option>
-                    <option value="SichuanModelWorker">四川省劳模</option>
-                    <option value="national51ModelWorker">全国五一劳动奖章</option>
-                    <option value="Sichuan51ModelWorker">四川五一劳动奖章</option>
-                    <option value="other">其他劳动荣誉称号</option>
-                </select></div>
+                <input type="text" readonly="readonly" value="<%=mod.get(0).getModelWorkerTitle()%>"></div>
             <div class="st2"><span>选择劳模待遇:</span>
-                <select name="modelWorkerTreatment">
-                    <option value="enjoyNationalModelWorker">享受全国劳动模范待遇</option>
-                    <option value="EnjoySichuanModelWorker">享受省、部级劳动模范待遇</option>
-                    <option value="cantModelWorkerTreatment">不能享受劳动模范待遇</option>
-                    <option value="cantModelWorker">不能享受省、部级劳动模范待遇</option>
-                </select>
+                <input type="text" readonly="readonly" value="<%=mod.get(0).getModelWorkerTreatment()%>">
             </div>
             <input type="button" class="cc1" onclick="getnext3('step10')" value="下一页">
             <input type="button" class="cc2" onclick="cancel()" value="取消">
@@ -386,52 +376,39 @@
         <%--        第二个小页面--%>
         <div id="step10">
             <div style="margin-top: 40px">
-                <span>姓&emsp;&emsp;名:</span><input type="text">
-                <span>身份证号:</span><input type="text" class="t1">
+                <span>姓&emsp;&emsp;名:</span><input type="text" readonly="readonly"
+                                                   value="<%=mod.get(0).getInfo().getModelName()%>">
+                <span>身份证号:</span><input type="text" class="t1" readonly="readonly"
+                                         value="<%=mod.get(0).getInfo().getID()%>">
             </div>
             <div>
-                <span>性&emsp;&emsp;别:</span><input type="radio" class="rad" value="man" name="sex" checked="checked"
-                                                   style="width: 20px;height: 20px;">男
-                <input type="radio" value="woman" class="rad" name="sex"
-                       style="margin-left: 63px;width: 20px;height: 20px;">女
-                <span>联系电话:</span><input type="text" class="t1">
+                <span>性&emsp;&emsp;别:</span><input type="text" readonly="readonly"
+                                                   value="<%=mod.get(0).getInfo().getSex()%>">
+                <span>联系电话:</span><input type="text" class="t1" readonly="readonly"
+                                         value="<%=mod.get(0).getInfo().getPhone()%>">
             </div>
             <div>
-                <span>民&emsp;&emsp;族:</span>
-                <select>
-                    <option value="han_nationality">汉族</option>
-                    <option value="ethnic_minority">少数民族</option>
-                </select><span>工作单位:</span><input type="text" class="t1">
+                <span>民&emsp;&emsp;族:</span><input type="text" readonly="readonly"
+                                                   value="<%=mod.get(0).getInfo().getNationality()%>">
+                <span>工作单位:</span><input type="text" class="t1" readonly="readonly"
+                                         value="<%=mod.get(0).getInfo().getOrganization()%>">
             </div>
             <div>
-                <span>出生年月:</span><input type="date">
-                <span>职&emsp;&emsp;位:</span>
-                <select style="width: 175px;">
-                    <option value="nothing">无</option>
-                    <option value="finance">财务</option>
-                    <option value="vice_president">副会长</option>
-                    <option value="president">会长</option>
-                </select>
+                <span>出生年月:</span><input type="date" readonly="readonly" value="<%=mod.get(0).getInfo().getBorn()%>">
+                <span>职&emsp;&emsp;位:</span><input type="text" readonly="readonly"
+                                                   value="<%=mod.get(0).getInfo().getJobTitle()%>">
             </div>
             <div>
-                <span>文化程度:</span>
-                <select>
-                    <option value="primary_school">小学</option>
-                    <option value="junior_middle_school">初中</option>
-                    <option value="high_school">高中</option>
-                    <option value="specialty">专科</option>
-                    <option value="undergraduate">本科</option>
-                    <option value="master">硕士</option>
-                    <option value="doctor">博士</option>
-                </select><span>获得称号时间:</span><input type="date">
+                <span>文化程度:</span><input type="text" readonly="readonly"
+                                         value="<%=mod.get(0).getInfo().getEducation()%>">
+                <span>获得称号时间:</span><input type="date" readonly="readonly"
+                                           value="<%=mod.get(0).getInfo().getGetModelWorkerTitleTime()%>">
             </div>
             <div>
-                <span>政治面貌:</span>
-                <select>
-                    <option value="masses">群众</option>
-                    <option value="league_member">团员</option>
-                    <option value="party_member">党员</option>
-                </select><span>授予单位:</span><input type="text" class="t1"><br>
+                <span>政治面貌:</span><input type="text" readonly="readonly"
+                                         value="<%=mod.get(0).getInfo().getPoliticalState()%>">
+                <span>授予单位:</span><input type="text" class="t1" readonly="readonly"
+                                         value="<%=mod.get(0).getInfo().getOrganization()%>"><br>
             </div>
             <input type="button" class="cc1" onclick="getnext3('step9')" value="上一页">
             <input type="button" class="cc2" onclick="getnext3('step11')" value="下一页">
@@ -439,31 +416,19 @@
         </div>
         <%--        第三个小页面--%>
         <div id="step11">
-            <div style="margin-top: 23px;"><span>身体健康状况:</span>
-                <input type="radio" name="healthy" class="rad" value="yse" checked="checked"
-                       style="margin-left: 60px;width: 20px;height: 20px;">健康
-                <input type="radio" value="no" name="healthy" class="rad"
-                       style="margin-left: 10px;width: 20px;height: 20px;">不健康
+            <div style="margin-top: 23px;"><span>身体健康状况:</span><input type="text" readonly="readonly"
+                                                                      value="<%=mod.get(0).getAddinfo().getStateofHealth()%>">
             </div>
-            <div><span>是否已获得荣誉称号:</span><input type="radio" name="honor" checked="checked" class="rad" value="yse"
-                                               style="width: 20px;height: 20px;">是
-                <input type="radio" value="no" name="honor" class="rad"
-                       style="margin-left: 10px; width: 20px;height: 20px;">否
+            <div><span>是否已获得荣誉称号:</span><input type="text" readonly="readonly"
+                                               value="<%=mod.get(0).getAddinfo().getModelWorkerTitle()%>">
             </div>
-            <div><span>家庭困难情况:</span>
-                <select>
-                    <option value="not_difficult">不困难</option>
-                    <option value="first_level_difficulty">一级困难</option>
-                    <option value="two_level_difficulty">二级困难</option>
-                    <option value="three_level_difficulty">三级困难</option>
-                </select></div>
-            <div><span>&emsp;&emsp;就业情况:</span>
-                <select>
-                    <option value="retire">退休</option>
-                    <option value="on_duty">在岗</option>
-                    <option value="liberal_professions">自由职业</option>
-                </select></div>
-            <div><span style="width: 145px;">主要突出事迹:</span><input type="text"></div>
+            <div><span>家庭困难情况:</span><input type="text" readonly="readonly"
+                                            value="<%=mod.get(0).getAddinfo().getStateofFamily()%>"></div>
+            <div><span>&emsp;&emsp;就业情况:</span><input type="text" readonly="readonly"
+                                                      value="<%=mod.get(0).getAddinfo().getStateofJob()%>"></div>
+            <div><span style="width: 145px;">主要突出事迹:</span><input type="text" readonly="readonly"
+                                                                  value="<%=mod.get(0).getAddinfo().getOutstandingDeeds()%>">
+            </div>
             <input type="button" class="cc1" onclick="getnext3('step10')" value="上一页">
             <input type="button" class="cc2" onclick="getnext3('step12')" value="下一页">
             <input type="button" class="cc3" onclick="cancel()" value="取消">
@@ -471,13 +436,20 @@
         <%--        第四个小页面--%>
         <div id="step12">
             <div class="one">输入认定材料</div>
-            <div><span>授予单位:</span><input class="te1" type="text"></div>
-            <div><span>授予时间:</span><input class="te1" type="date"></div>
-            <div><span class="two">表彰决定文件名:</span><input type="text" style="width: 200px;"></div>
-            <div><span class="three">文件名文号:</span><input type="text" style="width: 200px;"></div>
-            <div><span>发文单位:</span><input class="te1" type="text"></div>
-            <div><span>发文日期:</span><input class="te1" type="date"></div>
-            <div><span class="four">上传认定材料:</span><input type="file" style="width: 160px; border: none;"></div>
+            <div><span>授予单位:</span><input class="te1" type="text" readonly="readonly"
+                                          value="<%=mod.get(0).getCertifiedMaterials().getAwardingUnit()%>"></div>
+            <div><span>授予时间:</span><input class="te1" type="date" readonly="readonly"
+                                          value="<%=mod.get(0).getCertifiedMaterials().getAwardingTime()%>"></div>
+            <div><span class="two">表彰决定文件名:</span><input type="text" style="width: 200px;" readonly="readonly"
+                                                         value="<%=mod.get(0).getCertifiedMaterials().getRecognitionFileName()%>">
+            </div>
+            <div><span class="three">文件名文号:</span><input type="text" style="width: 200px;" readonly="readonly"
+                                                         value="<%=mod.get(0).getCertifiedMaterials().getSymbol()%>">
+            </div>
+            <div><span>发文单位:</span><input class="te1" type="text" readonly="readonly"
+                                          value="<%=mod.get(0).getCertifiedMaterials().getRecognitionUnit()%>"></div>
+            <div><span>发文日期:</span><input class="te1" type="date" readonly="readonly"
+                                          value="<%=mod.get(0).getCertifiedMaterials().getRecognitionTime()%>"></div>
             <input type="button" class="cc1" onclick="getnext3('step11')" style="margin-top: 10px;" value="上一页">
             <input type="button" class="cc3" onclick="cancel()" value="取消">
         </div>
@@ -543,11 +515,13 @@
                 <div>
                     <span>出生年月:</span><input type="date">
                     <span>职&emsp;&emsp;位:</span>
-                    <select style="width: 175px;">
-                        <option value="nothing">无</option>
-                        <option value="finance">财务</option>
-                        <option value="vice_president">副会长</option>
-                        <option value="president">会长</option>
+                    <select style="width: 175px;" name="jobTitle">
+                        <option value="nothing">企业领导</option>
+                        <option value="finance">机关领导</option>
+                        <option value="vice_president">企业员工</option>
+                        <option value="president">机关干部</option>
+                        <option value="">事业单位员工</option>
+                        <option value="">农业农村</option>
                     </select>
                 </div>
                 <div>
