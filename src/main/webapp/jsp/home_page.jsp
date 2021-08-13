@@ -27,8 +27,8 @@
 <div class="bars">
     <div class="bar">
         <div style="margin-left: 80px" onclick="window.location.href='/jsp/home_page.jsp'">首页</div>
-        <div onclick="window.location.href='/selectUsers/?currPage=1'" target="_blank">先进个人信息管理</div>
-        <div onclick="window.location.href='advanced_group.jsp'">先进集体信息管理</div>
+        <div onclick="window.location.href='/selectModelWorkerDetails'" target="_blank">先进个人信息管理</div>
+        <div onclick="window.location.href='/selectAdvance'">先进集体信息管理</div>
         <div onclick="window.location.href='cognizance_examine.jsp'">认定与审核</div>
         <div onclick="window.location.href='statistics.jsp'">信息统计</div>
         <div onclick="window.location.href='import_export.jsp'">导入导出</div>
@@ -36,7 +36,7 @@
     <div class="ba">
         <div onclick="window.location.href='logon.jsp'">退出</div>
         <div onclick="window.location.href='logon.jsp'">登录</div>
-        <div onclick="window.location.href='personal_center.jsp'">个人中心</div>
+        <div onclick="window.location.href='/selectUserAdmin'">个人中心</div>
     </div>
 </div>
 <%--荣誉榜单制作--%>

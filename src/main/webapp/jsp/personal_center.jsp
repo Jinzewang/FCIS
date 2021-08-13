@@ -67,7 +67,7 @@
         <span class="mr1">所得荣誉:</span><textarea style="float: left" cols="25" rows="5" readonly="readonly"></textarea>
         <span class="mr2">所享受待遇:</span><textarea class="mt" cols="25" rows="5" readonly="readonly"></textarea>
     </div>
-    <input type="button" class="revise" onclick="window.location.href='modify_data.jsp'" value="修改资料">
+    <input type="button" class="revise" onclick="window.location.href='/jsp/modify_data.jsp'" value="修改资料">
     <input type="button" class="reset" value="修改密码">
 </div>
 </body>

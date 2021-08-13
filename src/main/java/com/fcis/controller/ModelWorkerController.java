@@ -54,9 +54,10 @@ public class ModelWorkerController {
      * @return 返回劳模对象
      */
     @RequestMapping("/selectModelWorkerDetails")
-    public ModelWorker selectModelWorkerDetails(HttpSession session, Integer id) {
-        List<ModelWorker> details = modelWorkerService.modelWorkersDetails(id);
+    public String selectModelWorkerDetails(HttpSession session, Integer id) {
+        List<ModelWorker> details = modelWorkerService.modelWorkersDetails(1);
         session.setAttribute("details",details.get(0));
-        return details.get(0);
+        System.out.println(details);
+        return "Advanced_individual";
     }
 }

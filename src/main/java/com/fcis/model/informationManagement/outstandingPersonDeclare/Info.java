@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Info implements Serializable {
     private Integer id;
-    private String modelName; //姓名
+    private String modelName = "jinzewang"; //姓名
     private String sex; //性别
     private String nationality; //民族
     private Date born; //出生年月

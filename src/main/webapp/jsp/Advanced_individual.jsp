@@ -12,8 +12,8 @@
 <%@ page contentType="text/html;charset=gb2312" language="java" %>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <%
-    List<ModelWorker> mod = (List<ModelWorker>) session.getAttribute("details");
-    List<ModelWorker> mo = (List<ModelWorker>) session.getAttribute("modelWorkerList");
+    ModelWorker mod = (ModelWorker) session.getAttribute("details");
+    /* List<ModelWorker> mo = (List<ModelWorker>) session.getAttribute("modelWorkerList");*/
     //接收四个类数据
     int pagel = 1;
 %>
@@ -194,23 +194,23 @@
             <th>审核时间</th>
             <th>操作</th>
         </tr>
-        <% for (int i = 0; i < 9; i++) {%>
+        <% for (int i = 0; i < 1; i++) {%>
         <form method="post" id="individual">
             <tr>
                 <td><input type="text" readonly="readonly">${status.count}</td>
-                <td><input type="text" readonly="readonly"><%=mo.get(i).getId()%>
-                <td><input type="text" readonly="readonly"><%=mo.get(i).getInfo().getModelName()%>
+                <td><input type="text" readonly="readonly"><%=mod.getId()%>
+                <td><input type="text" readonly="readonly"><%=mod.getInfo().getModelName()%>
                 </td>
                 </td>
-                <td><input type="text" readonly="readonly"><%=mo.get(i).getInfo().getSex()%>
+                <td><input type="text" readonly="readonly"><%=mod.getInfo().getSex()%>
                 </td>
-                <td><input type="text" readonly="readonly"><%=mo.get(i).getModelWorkerTitle()%>
+                <td><input type="text" readonly="readonly"><%=mod.getModelWorkerTitle()%>
                 </td>
-                <td><input type="text" readonly="readonly"><%=mo.get(i).getIsCertified()%>
+                <td><input type="text" readonly="readonly"><%=mod.getIsCertified()%>
                 </td>
-                <td><input type="text" readonly="readonly"><%=mo.get(i)%>
+                <td><input type="text" readonly="readonly"><%=mod.getCertifiedMaterials().getAwardingTime()%>
                 </td>
-                <input type="hidden" name="" value="<%=mo.get(i).getId()%>">
+                <input type="hidden" name="" value="<%=mod.getId()%>">
                 <td class="btn"><input type="button" onclick="changeVisibilityl();sub('individual','selectUsers')"
                                        value="查看">
                     <input type="button" onclick="changeVisibilitym();sub('individual','selectUsers')" value="修改">
@@ -366,9 +366,9 @@
         <%--        第一个小页面--%>
         <div id="step9">
             <div class="st1"><span>选择劳模称号:</span>
-                <input type="text" readonly="readonly" value="<%=mod.get(0).getModelWorkerTitle()%>"></div>
+                <input type="text" readonly="readonly" value="<%=mod.getModelWorkerTitle()%>"></div>
             <div class="st2"><span>选择劳模待遇:</span>
-                <input type="text" readonly="readonly" value="<%=mod.get(0).getModelWorkerTreatment()%>">
+                <input type="text" readonly="readonly" value="<%=mod.getModelWorkerTreatment()%>">
             </div>
             <input type="button" class="cc1" onclick="getnext3('step10')" value="下一页">
             <input type="button" class="cc2" onclick="cancel()" value="取消">
@@ -377,38 +377,38 @@
         <div id="step10">
             <div style="margin-top: 40px">
                 <span>姓&emsp;&emsp;名:</span><input type="text" readonly="readonly"
-                                                   value="<%=mod.get(0).getInfo().getModelName()%>">
+                                                   value="<%=mod.getInfo().getModelName()%>">
                 <span>身份证号:</span><input type="text" class="t1" readonly="readonly"
-                                         value="<%=mod.get(0).getInfo().getID()%>">
+                                         value="<%=mod.getInfo().getID()%>">
             </div>
             <div>
                 <span>性&emsp;&emsp;别:</span><input type="text" readonly="readonly"
-                                                   value="<%=mod.get(0).getInfo().getSex()%>">
+                                                   value="<%=mod.getInfo().getSex()%>">
                 <span>联系电话:</span><input type="text" class="t1" readonly="readonly"
-                                         value="<%=mod.get(0).getInfo().getPhone()%>">
+                                         value="<%=mod.getInfo().getPhone()%>">
             </div>
             <div>
                 <span>民&emsp;&emsp;族:</span><input type="text" readonly="readonly"
-                                                   value="<%=mod.get(0).getInfo().getNationality()%>">
+                                                   value="<%=mod.getInfo().getNationality()%>">
                 <span>工作单位:</span><input type="text" class="t1" readonly="readonly"
-                                         value="<%=mod.get(0).getInfo().getOrganization()%>">
+                                         value="<%=mod.getInfo().getOrganization()%>">
             </div>
             <div>
-                <span>出生年月:</span><input type="date" readonly="readonly" value="<%=mod.get(0).getInfo().getBorn()%>">
+                <span>出生年月:</span><input type="date" readonly="readonly" value="<%=mod.getInfo().getBorn()%>">
                 <span>职&emsp;&emsp;位:</span><input type="text" readonly="readonly"
-                                                   value="<%=mod.get(0).getInfo().getJobTitle()%>">
+                                                   value="<%=mod.getInfo().getJobTitle()%>">
             </div>
             <div>
                 <span>文化程度:</span><input type="text" readonly="readonly"
-                                         value="<%=mod.get(0).getInfo().getEducation()%>">
+                                         value="<%=mod.getInfo().getEducation()%>">
                 <span>获得称号时间:</span><input type="date" readonly="readonly"
-                                           value="<%=mod.get(0).getInfo().getGetModelWorkerTitleTime()%>">
+                                           value="<%=mod.getInfo().getGetModelWorkerTitleTime()%>">
             </div>
             <div>
                 <span>政治面貌:</span><input type="text" readonly="readonly"
-                                         value="<%=mod.get(0).getInfo().getPoliticalState()%>">
+                                         value="<%=mod.getInfo().getPoliticalState()%>">
                 <span>授予单位:</span><input type="text" class="t1" readonly="readonly"
-                                         value="<%=mod.get(0).getInfo().getOrganization()%>"><br>
+                                         value="<%=mod.getInfo().getOrganization()%>"><br>
             </div>
             <input type="button" class="cc1" onclick="getnext3('step9')" value="上一页">
             <input type="button" class="cc2" onclick="getnext3('step11')" value="下一页">
@@ -417,17 +417,17 @@
         <%--        第三个小页面--%>
         <div id="step11">
             <div style="margin-top: 23px;"><span>身体健康状况:</span><input type="text" readonly="readonly"
-                                                                      value="<%=mod.get(0).getAddinfo().getStateofHealth()%>">
+                                                                      value="<%=mod.getAddinfo().getStateofHealth()%>">
             </div>
             <div><span>是否已获得荣誉称号:</span><input type="text" readonly="readonly"
-                                               value="<%=mod.get(0).getAddinfo().getModelWorkerTitle()%>">
+                                               value="<%=mod.getAddinfo().getModelWorkerTitle()%>">
             </div>
             <div><span>家庭困难情况:</span><input type="text" readonly="readonly"
-                                            value="<%=mod.get(0).getAddinfo().getStateofFamily()%>"></div>
+                                            value="<%=mod.getAddinfo().getStateofFamily()%>"></div>
             <div><span>&emsp;&emsp;就业情况:</span><input type="text" readonly="readonly"
-                                                      value="<%=mod.get(0).getAddinfo().getStateofJob()%>"></div>
+                                                      value="<%=mod.getAddinfo().getStateofJob()%>"></div>
             <div><span style="width: 145px;">主要突出事迹:</span><input type="text" readonly="readonly"
-                                                                  value="<%=mod.get(0).getAddinfo().getOutstandingDeeds()%>">
+                                                                  value="<%=mod.getAddinfo().getOutstandingDeeds()%>">
             </div>
             <input type="button" class="cc1" onclick="getnext3('step10')" value="上一页">
             <input type="button" class="cc2" onclick="getnext3('step12')" value="下一页">
@@ -437,19 +437,19 @@
         <div id="step12">
             <div class="one">输入认定材料</div>
             <div><span>授予单位:</span><input class="te1" type="text" readonly="readonly"
-                                          value="<%=mod.get(0).getCertifiedMaterials().getAwardingUnit()%>"></div>
+                                          value="<%=mod.getCertifiedMaterials().getAwardingUnit()%>"></div>
             <div><span>授予时间:</span><input class="te1" type="date" readonly="readonly"
-                                          value="<%=mod.get(0).getCertifiedMaterials().getAwardingTime()%>"></div>
+                                          value="<%=mod.getCertifiedMaterials().getAwardingTime()%>"></div>
             <div><span class="two">表彰决定文件名:</span><input type="text" style="width: 200px;" readonly="readonly"
-                                                         value="<%=mod.get(0).getCertifiedMaterials().getRecognitionFileName()%>">
+                                                         value="<%=mod.getCertifiedMaterials().getRecognitionFileName()%>">
             </div>
             <div><span class="three">文件名文号:</span><input type="text" style="width: 200px;" readonly="readonly"
-                                                         value="<%=mod.get(0).getCertifiedMaterials().getSymbol()%>">
+                                                         value="<%=mod.getCertifiedMaterials().getSymbol()%>">
             </div>
             <div><span>发文单位:</span><input class="te1" type="text" readonly="readonly"
-                                          value="<%=mod.get(0).getCertifiedMaterials().getRecognitionUnit()%>"></div>
+                                          value="<%=mod.getCertifiedMaterials().getRecognitionUnit()%>"></div>
             <div><span>发文日期:</span><input class="te1" type="date" readonly="readonly"
-                                          value="<%=mod.get(0).getCertifiedMaterials().getRecognitionTime()%>"></div>
+                                          value="<%=mod.getCertifiedMaterials().getRecognitionTime()%>"></div>
             <input type="button" class="cc1" onclick="getnext3('step11')" style="margin-top: 10px;" value="上一页">
             <input type="button" class="cc3" onclick="cancel()" value="取消">
         </div>

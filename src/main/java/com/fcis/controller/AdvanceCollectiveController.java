@@ -26,15 +26,15 @@ public class AdvanceCollectiveController {
     /**
      * 按称号查询先进集体并分页展示
      * @param collectiveTitle 称号
-     * @param currPage 当前页码
      * @return 返回所有集体
      */
-    @RequestMapping("/selectAdvance/{currPage}")
-    public List<CollectiveInfo> selectAdvanceCollective(String collectiveTitle
-            , @PathVariable("currPage") int currPage, HttpSession session) {
-        List<CollectiveInfo> allCollectives = advanceCollectiveService.selectAdvance(collectiveTitle, currPage, 10);
+    @RequestMapping("/selectAdvance")
+    public String selectAdvanceCollective(String collectiveTitle
+            /*, @PathVariable("currPage") int currPage*/, HttpSession session) {
+        System.out.println("获取先进集体请求");
+        List<CollectiveInfo> allCollectives = advanceCollectiveService.selectAdvance(collectiveTitle, 1/*currPage*/, 10);
         session.setAttribute("allCollectives",allCollectives);
-        return allCollectives;
+        return "redirect:/jsp/advanced_group.jsp";
     }
 
     /**

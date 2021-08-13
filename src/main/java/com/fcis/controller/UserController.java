@@ -25,11 +25,11 @@ public class UserController {
 
     // 按条件查询劳模
     @RequestMapping("/selectUsers/{currPage}")//url=/selectUsers?currPage=2
-    public List<ModelWorker> getAllUsers(String username, String otherCondition, String sex, String nationality, String politicalState
+    public String getAllUsers(String username, String otherCondition, String sex, String nationality, String politicalState
             , @PathVariable("currPage") int currPage,HttpSession session) {
         List<ModelWorker> modelWorkerList = userService.getAllUser(username, otherCondition, sex, nationality, politicalState, currPage, 9);
         session.setAttribute("modelWorkerList",modelWorkerList);
-        return modelWorkerList;
+        return "redirect:/jsp/Advanced_individual.jsp";
     }
 
     /*//正常访问login页面
@@ -124,10 +124,11 @@ public class UserController {
      * @return 返回列表
      */
     @RequestMapping("/selectUserAdmin")
-    public List<User> selectUserAdmin(String condition,HttpSession session) {
-        List<User> users = userService.selectUserAdmin(condition);
+    public String selectUserAdmin(String condition,HttpSession session) {
+        // 本来想的是根据用户登录后的账户进行查询的
+        List<User> users = userService.selectUserAdmin("jinzewang");
         session.setAttribute("users",users);
-        return users;
+        return "personal_center";
     }
 
     /**

@@ -99,9 +99,13 @@
 	</select>
 
 <!--	查询劳模详细信息-->
-	<resultMap id="detailsResultMap" type="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker" extends="baseResultMap">
-		<association property="modelworker_info_id" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.Info">
-			<id column="info_id" property="id"/>
+	<resultMap id="detailsResultMap" type="com.fcis.model.informationManagement.outstandingPersonDeclare.ModelWorker">
+		<id column="modelworker_id" property="id"/>
+		<result column="modelworker_title" property="modelWorkerTitle"/>
+		<result column="modelworker_treatment" property="modelWorkerTreatment"/>
+		<result column="modelworker_state" property="isCertified"/>
+		<association property="info" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.Info">
+			<id column="modelworker_info_id" property="id"/>
 			<result column="info_name" property="modelName"/>
 			<result column="sex" property="sex"/>
 			<result column="nationality" property="nationality"/>
@@ -116,16 +120,16 @@
 			<result column="identity_number" property="ID"/>
 			<result column="phone" property="phone"/>
 		</association>
-		<association property="modelworker_addinfo_id" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.AddInfo">
-			<id column="addinfo_id" property="id"/>
+		<association property="addinfo" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.AddInfo">
+			<id column="modelworker_addinfo_id" property="id"/>
 			<result column="stateof_health" property="stateofHealth"/>
 			<result column="stateof_family" property="stateofFamily"/>
 			<result column="stateof_job" property="stateofJob"/>
 			<result column="outstanding_dees" property="outstandingDeeds"/>
 			<result column="ismodelworker_title" property="modelWorkerTitle"/>
 		</association>
-		<association property="modelworker_materials_id" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.CertifiedMaterials">
-			<id column="certifiedmaterials_id" property="id"/>
+		<association property="certifiedMaterials" javaType="com.fcis.model.informationManagement.outstandingPersonDeclare.CertifiedMaterials">
+			<id column="modelworker_materials_id" property="id"/>
 			<result column="awarding_unit" property="awardingUnit"/>
 			<result column="awarding_time" property="awardingTime"/>
 			<result column="recognition_name" property="recognitionFileName"/>
